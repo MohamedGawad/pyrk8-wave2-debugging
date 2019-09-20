@@ -1,0 +1,17 @@
+site_name: Collector
+theme:
+  name: readthedocs
+extra_css: ["extra.css"]
+nav:
+ - Overview: 000_overview.md
+ - Menu options: 040_uiMenu.md
+ - Tabs: 060_uiTabs.md
+ - Course authoring: 075_courseAuthoring.md
+ - Example course 1: 076_example_course_1.md
+ - Course parameters: 080_courseParameters.md
+ - Configuration: 085_configuration.md
+ - Generate deployment files: 087_generate.md
+ - Runtime: 090_runtime.md
+markdown_extensions:
+  - admonition
+  - attr_list

@@ -1,9 +1,0 @@
-{
-    "instructorUrl"       : "http://dashboard.default",
-    "instructorNamespace" : "default",
-    "repoName"            : "ibmicpcoc",
-    "containerName"       : "collector",
-    "version"             : "V3",
-    "studentPort"         : 31001,
-    "instructorPort"      : 31000
-} 
