@@ -1,0 +1,92 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: red-pv 
+  labels:
+    user: red
+spec:
+  capacity:
+    storage: 1Mi 
+  accessModes:
+  - ReadWriteOnce 
+  nfs: 
+    path: /storage/red/pvc001
+    server: 169.62.225.199
+  persistentVolumeReclaimPolicy: Recycle    
+
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: red-offer
+  namespace: red
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Mi
+  selector:
+    matchLabels:
+      user: red
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-offer
+  namespace: red
+  labels:
+    app: red-offer
+spec:
+  selector:
+    matchLabels:
+      app: red-offer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-offer
+    spec:
+      containers:
+      - name: red-offer
+        image: ibmicpcoc/offer:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        volumeMounts:
+        - name: offer-data
+          mountPath: /data
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+      volumes:
+      - name: offer-data
+        persistentVolumeClaim:
+          claimName: red-offr

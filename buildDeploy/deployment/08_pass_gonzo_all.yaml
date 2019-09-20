@@ -1,0 +1,4851 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-gonzo
+  namespace: red
+  labels:
+    app: red-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: red-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-gonzo
+    spec:
+      containers:
+      - name: red-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-gonzo
+  namespace: tan
+  labels:
+    app: tan-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: tan-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-gonzo
+    spec:
+      containers:
+      - name: tan-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-gonzo
+  namespace: aqua
+  labels:
+    app: aqua-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: aqua-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-gonzo
+    spec:
+      containers:
+      - name: aqua-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-gonzo
+  namespace: blue
+  labels:
+    app: blue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: blue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-gonzo
+    spec:
+      containers:
+      - name: blue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-gonzo
+  namespace: gold
+  labels:
+    app: gold-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: gold-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-gonzo
+    spec:
+      containers:
+      - name: gold-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-gonzo
+  namespace: gray
+  labels:
+    app: gray-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: gray-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-gonzo
+    spec:
+      containers:
+      - name: gray-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-gonzo
+  namespace: lime
+  labels:
+    app: lime-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lime-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-gonzo
+    spec:
+      containers:
+      - name: lime-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-gonzo
+  namespace: navy
+  labels:
+    app: navy-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: navy-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-gonzo
+    spec:
+      containers:
+      - name: navy-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peru-gonzo
+  namespace: peru
+  labels:
+    app: peru-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: peru-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: peru-gonzo
+    spec:
+      containers:
+      - name: peru-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peru-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peru-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-gonzo
+  namespace: pink
+  labels:
+    app: pink-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: pink-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-gonzo
+    spec:
+      containers:
+      - name: pink-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-gonzo
+  namespace: plum
+  labels:
+    app: plum-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: plum-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-gonzo
+    spec:
+      containers:
+      - name: plum-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-gonzo
+  namespace: teal
+  labels:
+    app: teal-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: teal-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-gonzo
+    spec:
+      containers:
+      - name: teal-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-gonzo
+  namespace: azure
+  labels:
+    app: azure-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: azure-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-gonzo
+    spec:
+      containers:
+      - name: azure-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-gonzo
+  namespace: beige
+  labels:
+    app: beige-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: beige-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-gonzo
+    spec:
+      containers:
+      - name: beige-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-gonzo
+  namespace: black
+  labels:
+    app: black-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: black-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-gonzo
+    spec:
+      containers:
+      - name: black-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-gonzo
+  namespace: brown
+  labels:
+    app: brown-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: brown-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-gonzo
+    spec:
+      containers:
+      - name: brown-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-gonzo
+  namespace: coral
+  labels:
+    app: coral-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: coral-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-gonzo
+    spec:
+      containers:
+      - name: coral-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-gonzo
+  namespace: green
+  labels:
+    app: green-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: green-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-gonzo
+    spec:
+      containers:
+      - name: green-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-gonzo
+  namespace: khaki
+  labels:
+    app: khaki-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: khaki-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-gonzo
+    spec:
+      containers:
+      - name: khaki-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-gonzo
+  namespace: olive
+  labels:
+    app: olive-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: olive-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-gonzo
+    spec:
+      containers:
+      - name: olive-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-gonzo
+  namespace: wheat
+  labels:
+    app: wheat-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: wheat-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-gonzo
+    spec:
+      containers:
+      - name: wheat-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-gonzo
+  namespace: indigo
+  labels:
+    app: indigo-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: indigo-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-gonzo
+    spec:
+      containers:
+      - name: indigo-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-gonzo
+  namespace: maroon
+  labels:
+    app: maroon-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: maroon-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-gonzo
+    spec:
+      containers:
+      - name: maroon-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-gonzo
+  namespace: orange
+  labels:
+    app: orange-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: orange-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-gonzo
+    spec:
+      containers:
+      - name: orange-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-gonzo
+  namespace: purple
+  labels:
+    app: purple-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: purple-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-gonzo
+    spec:
+      containers:
+      - name: purple-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-gonzo
+  namespace: salmon
+  labels:
+    app: salmon-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: salmon-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-gonzo
+    spec:
+      containers:
+      - name: salmon-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sienna-gonzo
+  namespace: sienna
+  labels:
+    app: sienna-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: sienna-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sienna-gonzo
+    spec:
+      containers:
+      - name: sienna-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sienna-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sienna-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-gonzo
+  namespace: tomato
+  labels:
+    app: tomato-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: tomato-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-gonzo
+    spec:
+      containers:
+      - name: tomato-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: violet-gonzo
+  namespace: violet
+  labels:
+    app: violet-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: violet-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: violet-gonzo
+    spec:
+      containers:
+      - name: violet-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: violet-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: violet-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-gonzo
+  namespace: yellow
+  labels:
+    app: yellow-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: yellow-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-gonzo
+    spec:
+      containers:
+      - name: yellow-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crimson-gonzo
+  namespace: crimson
+  labels:
+    app: crimson-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: crimson-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: crimson-gonzo
+    spec:
+      containers:
+      - name: crimson-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: crimson-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: crimson-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-gonzo
+  namespace: darkred
+  labels:
+    app: darkred-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkred-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-gonzo
+    spec:
+      containers:
+      - name: darkred-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dimgray-gonzo
+  namespace: dimgray
+  labels:
+    app: dimgray-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: dimgray-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dimgray-gonzo
+    spec:
+      containers:
+      - name: dimgray-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dimgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dimgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuchsia-gonzo
+  namespace: fuchsia
+  labels:
+    app: fuchsia-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: fuchsia-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fuchsia-gonzo
+    spec:
+      containers:
+      - name: fuchsia-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: fuchsia-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: fuchsia-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotpink-gonzo
+  namespace: hotpink
+  labels:
+    app: hotpink-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: hotpink-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotpink-gonzo
+    spec:
+      containers:
+      - name: hotpink-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: hotpink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: hotpink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-gonzo
+  namespace: magenta
+  labels:
+    app: magenta-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: magenta-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-gonzo
+    spec:
+      containers:
+      - name: magenta-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skyblue-gonzo
+  namespace: skyblue
+  labels:
+    app: skyblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: skyblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: skyblue-gonzo
+    spec:
+      containers:
+      - name: skyblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: skyblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: skyblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thistle-gonzo
+  namespace: thistle
+  labels:
+    app: thistle-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: thistle-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: thistle-gonzo
+    spec:
+      containers:
+      - name: thistle-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: thistle-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: thistle-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkblue-gonzo
+  namespace: darkblue
+  labels:
+    app: darkblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkblue-gonzo
+    spec:
+      containers:
+      - name: darkblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkcyan-gonzo
+  namespace: darkcyan
+  labels:
+    app: darkcyan-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkcyan-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkcyan-gonzo
+    spec:
+      containers:
+      - name: darkcyan-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkcyan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkcyan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-gonzo
+  namespace: darkgray
+  labels:
+    app: darkgray-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-gonzo
+    spec:
+      containers:
+      - name: darkgray-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-gonzo
+  namespace: deeppink
+  labels:
+    app: deeppink-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-gonzo
+    spec:
+      containers:
+      - name: deeppink-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: honeydew-gonzo
+  namespace: honeydew
+  labels:
+    app: honeydew-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: honeydew-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: honeydew-gonzo
+    spec:
+      containers:
+      - name: honeydew-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: honeydew-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: honeydew-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seagreen-gonzo
+  namespace: seagreen
+  labels:
+    app: seagreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: seagreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: seagreen-gonzo
+    spec:
+      containers:
+      - name: seagreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: seagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: seagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-gonzo
+  namespace: burlywood
+  labels:
+    app: burlywood-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-gonzo
+    spec:
+      containers:
+      - name: burlywood-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cadetblue-gonzo
+  namespace: cadetblue
+  labels:
+    app: cadetblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: cadetblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cadetblue-gonzo
+    spec:
+      containers:
+      - name: cadetblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cadetblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cadetblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chocolate-gonzo
+  namespace: chocolate
+  labels:
+    app: chocolate-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: chocolate-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chocolate-gonzo
+    spec:
+      containers:
+      - name: chocolate-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: chocolate-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: chocolate-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgreen-gonzo
+  namespace: darkgreen
+  labels:
+    app: darkgreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkgreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgreen-gonzo
+    spec:
+      containers:
+      - name: darkgreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkkhaki-gonzo
+  namespace: darkkhaki
+  labels:
+    app: darkkhaki-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkkhaki-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkkhaki-gonzo
+    spec:
+      containers:
+      - name: darkkhaki-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkkhaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkkhaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-gonzo
+  namespace: firebrick
+  labels:
+    app: firebrick-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-gonzo
+    spec:
+      containers:
+      - name: firebrick-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goldenrod-gonzo
+  namespace: goldenrod
+  labels:
+    app: goldenrod-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: goldenrod-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: goldenrod-gonzo
+    spec:
+      containers:
+      - name: goldenrod-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: goldenrod-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: goldenrod-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indianred-gonzo
+  namespace: indianred
+  labels:
+    app: indianred-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: indianred-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indianred-gonzo
+    spec:
+      containers:
+      - name: indianred-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indianred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indianred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lawngreen-gonzo
+  namespace: lawngreen
+  labels:
+    app: lawngreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lawngreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lawngreen-gonzo
+    spec:
+      containers:
+      - name: lawngreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lawngreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lawngreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-gonzo
+  namespace: lightblue
+  labels:
+    app: lightblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-gonzo
+    spec:
+      containers:
+      - name: lightblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightgray-gonzo
+  namespace: lightgray
+  labels:
+    app: lightgray-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lightgray-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightgray-gonzo
+    spec:
+      containers:
+      - name: lightgray-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightpink-gonzo
+  namespace: lightpink
+  labels:
+    app: lightpink-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lightpink-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightpink-gonzo
+    spec:
+      containers:
+      - name: lightpink-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightpink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightpink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: limegreen-gonzo
+  namespace: limegreen
+  labels:
+    app: limegreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: limegreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: limegreen-gonzo
+    spec:
+      containers:
+      - name: limegreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: limegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: limegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olivedrab-gonzo
+  namespace: olivedrab
+  labels:
+    app: olivedrab-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: olivedrab-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olivedrab-gonzo
+    spec:
+      containers:
+      - name: olivedrab-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olivedrab-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olivedrab-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orangered-gonzo
+  namespace: orangered
+  labels:
+    app: orangered-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: orangered-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orangered-gonzo
+    spec:
+      containers:
+      - name: orangered-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orangered-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orangered-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-gonzo
+  namespace: palegreen
+  labels:
+    app: palegreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-gonzo
+    spec:
+      containers:
+      - name: palegreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peachpuff-gonzo
+  namespace: peachpuff
+  labels:
+    app: peachpuff-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: peachpuff-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: peachpuff-gonzo
+    spec:
+      containers:
+      - name: peachpuff-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peachpuff-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peachpuff-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rosybrown-gonzo
+  namespace: rosybrown
+  labels:
+    app: rosybrown-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: rosybrown-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rosybrown-gonzo
+    spec:
+      containers:
+      - name: rosybrown-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: rosybrown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: rosybrown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: royalblue-gonzo
+  namespace: royalblue
+  labels:
+    app: royalblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: royalblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: royalblue-gonzo
+    spec:
+      containers:
+      - name: royalblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: royalblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: royalblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slateblue-gonzo
+  namespace: slateblue
+  labels:
+    app: slateblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: slateblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slateblue-gonzo
+    spec:
+      containers:
+      - name: slateblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slateblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slateblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slategray-gonzo
+  namespace: slategray
+  labels:
+    app: slategray-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: slategray-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slategray-gonzo
+    spec:
+      containers:
+      - name: slategray-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slategray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slategray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-gonzo
+  namespace: steelblue
+  labels:
+    app: steelblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-gonzo
+    spec:
+      containers:
+      - name: steelblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: turquoise-gonzo
+  namespace: turquoise
+  labels:
+    app: turquoise-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: turquoise-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: turquoise-gonzo
+    spec:
+      containers:
+      - name: turquoise-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: turquoise-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: turquoise-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aquamarine-gonzo
+  namespace: aquamarine
+  labels:
+    app: aquamarine-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: aquamarine-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aquamarine-gonzo
+    spec:
+      containers:
+      - name: aquamarine-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aquamarine-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aquamarine-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blueviolet-gonzo
+  namespace: blueviolet
+  labels:
+    app: blueviolet-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: blueviolet-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blueviolet-gonzo
+    spec:
+      containers:
+      - name: blueviolet-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blueviolet-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blueviolet-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darksalmon-gonzo
+  namespace: darksalmon
+  labels:
+    app: darksalmon-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darksalmon-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darksalmon-gonzo
+    spec:
+      containers:
+      - name: darksalmon-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darksalmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darksalmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkviolet-gonzo
+  namespace: darkviolet
+  labels:
+    app: darkviolet-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkviolet-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkviolet-gonzo
+    spec:
+      containers:
+      - name: darkviolet-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkviolet-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkviolet-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dodgerblue-gonzo
+  namespace: dodgerblue
+  labels:
+    app: dodgerblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: dodgerblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dodgerblue-gonzo
+    spec:
+      containers:
+      - name: dodgerblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dodgerblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dodgerblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightcoral-gonzo
+  namespace: lightcoral
+  labels:
+    app: lightcoral-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lightcoral-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightcoral-gonzo
+    spec:
+      containers:
+      - name: lightcoral-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightcoral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightcoral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightgreen-gonzo
+  namespace: lightgreen
+  labels:
+    app: lightgreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lightgreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightgreen-gonzo
+    spec:
+      containers:
+      - name: lightgreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumblue-gonzo
+  namespace: mediumblue
+  labels:
+    app: mediumblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumblue-gonzo
+    spec:
+      containers:
+      - name: mediumblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sandybrown-gonzo
+  namespace: sandybrown
+  labels:
+    app: sandybrown-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: sandybrown-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sandybrown-gonzo
+    spec:
+      containers:
+      - name: sandybrown-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sandybrown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sandybrown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkmagenta-gonzo
+  namespace: darkmagenta
+  labels:
+    app: darkmagenta-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkmagenta-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkmagenta-gonzo
+    spec:
+      containers:
+      - name: darkmagenta-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkmagenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkmagenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forestgreen-gonzo
+  namespace: forestgreen
+  labels:
+    app: forestgreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: forestgreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: forestgreen-gonzo
+    spec:
+      containers:
+      - name: forestgreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: forestgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: forestgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greenyellow-gonzo
+  namespace: greenyellow
+  labels:
+    app: greenyellow-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: greenyellow-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: greenyellow-gonzo
+    spec:
+      containers:
+      - name: greenyellow-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: greenyellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: greenyellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navajowhite-gonzo
+  namespace: navajowhite
+  labels:
+    app: navajowhite-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: navajowhite-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navajowhite-gonzo
+    spec:
+      containers:
+      - name: navajowhite-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navajowhite-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navajowhite-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saddlebrown-gonzo
+  namespace: saddlebrown
+  labels:
+    app: saddlebrown-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: saddlebrown-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: saddlebrown-gonzo
+    spec:
+      containers:
+      - name: saddlebrown-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: saddlebrown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: saddlebrown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springgreen-gonzo
+  namespace: springgreen
+  labels:
+    app: springgreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: springgreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: springgreen-gonzo
+    spec:
+      containers:
+      - name: springgreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: springgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: springgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellowgreen-gonzo
+  namespace: yellowgreen
+  labels:
+    app: yellowgreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: yellowgreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellowgreen-gonzo
+    spec:
+      containers:
+      - name: yellowgreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellowgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellowgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkseagreen-gonzo
+  namespace: darkseagreen
+  labels:
+    app: darkseagreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkseagreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkseagreen-gonzo
+    spec:
+      containers:
+      - name: darkseagreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkseagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkseagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumorchid-gonzo
+  namespace: mediumorchid
+  labels:
+    app: mediumorchid-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumorchid-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumorchid-gonzo
+    spec:
+      containers:
+      - name: mediumorchid-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumorchid-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumorchid-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumpurple-gonzo
+  namespace: mediumpurple
+  labels:
+    app: mediumpurple-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumpurple-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumpurple-gonzo
+    spec:
+      containers:
+      - name: mediumpurple-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumpurple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumpurple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: midnightblue-gonzo
+  namespace: midnightblue
+  labels:
+    app: midnightblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: midnightblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: midnightblue-gonzo
+    spec:
+      containers:
+      - name: midnightblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: midnightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: midnightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgoldenrod-gonzo
+  namespace: darkgoldenrod
+  labels:
+    app: darkgoldenrod-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkgoldenrod-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgoldenrod-gonzo
+    spec:
+      containers:
+      - name: darkgoldenrod-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgoldenrod-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgoldenrod-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkslateblue-gonzo
+  namespace: darkslateblue
+  labels:
+    app: darkslateblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkslateblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkslateblue-gonzo
+    spec:
+      containers:
+      - name: darkslateblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkslateblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkslateblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightseagreen-gonzo
+  namespace: lightseagreen
+  labels:
+    app: lightseagreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lightseagreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightseagreen-gonzo
+    spec:
+      containers:
+      - name: lightseagreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightseagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightseagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palevioletred-gonzo
+  namespace: palevioletred
+  labels:
+    app: palevioletred-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: palevioletred-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palevioletred-gonzo
+    spec:
+      containers:
+      - name: palevioletred-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palevioletred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palevioletred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornflowerblue-gonzo
+  namespace: cornflowerblue
+  labels:
+    app: cornflowerblue-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: cornflowerblue-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornflowerblue-gonzo
+    spec:
+      containers:
+      - name: cornflowerblue-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornflowerblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornflowerblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkolivegreen-gonzo
+  namespace: darkolivegreen
+  labels:
+    app: darkolivegreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: darkolivegreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkolivegreen-gonzo
+    spec:
+      containers:
+      - name: darkolivegreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkolivegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkolivegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightslategray-gonzo
+  namespace: lightslategray
+  labels:
+    app: lightslategray-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: lightslategray-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightslategray-gonzo
+    spec:
+      containers:
+      - name: lightslategray-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightslategray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightslategray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumseagreen-gonzo
+  namespace: mediumseagreen
+  labels:
+    app: mediumseagreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumseagreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumseagreen-gonzo
+    spec:
+      containers:
+      - name: mediumseagreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumseagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumseagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumturquoise-gonzo
+  namespace: mediumturquoise
+  labels:
+    app: mediumturquoise-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumturquoise-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumturquoise-gonzo
+    spec:
+      containers:
+      - name: mediumturquoise-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumturquoise-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumturquoise-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumvioletred-gonzo
+  namespace: mediumvioletred
+  labels:
+    app: mediumvioletred-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumvioletred-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumvioletred-gonzo
+    spec:
+      containers:
+      - name: mediumvioletred-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumvioletred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumvioletred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumaquamarine-gonzo
+  namespace: mediumaquamarine
+  labels:
+    app: mediumaquamarine-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumaquamarine-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumaquamarine-gonzo
+    spec:
+      containers:
+      - name: mediumaquamarine-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumaquamarine-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumaquamarine-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumspringgreen-gonzo
+  namespace: mediumspringgreen
+  labels:
+    app: mediumspringgreen-gonzo
+spec:
+  selector:
+    matchLabels:
+      app: mediumspringgreen-gonzo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumspringgreen-gonzo
+    spec:
+      containers:
+      - name: mediumspringgreen-gonzo
+        image: ibmicpcoc/gonzo:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumspringgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumspringgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---

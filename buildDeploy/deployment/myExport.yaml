@@ -1,0 +1,408 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/scc: restricted
+    creationTimestamp: 2019-09-01T13:47:16Z
+    generateName: red-rainy-699c974d54-
+    labels:
+      app: red-rainy
+      pod-template-hash: "2557530810"
+    name: red-rainy-699c974d54-gvrqw
+    namespace: red
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: red-rainy-699c974d54
+      uid: 0254259d-ccbf-11e9-8c57-0607f5770d4d
+    resourceVersion: "601816"
+    selfLink: /api/v1/namespaces/red/pods/red-rainy-699c974d54-gvrqw
+    uid: 0256ed41-ccbf-11e9-8c57-0607f5770d4d
+  spec:
+    containers:
+    - args:
+      - while true; do if [[ -e /etc/podinfo/labels ]]; then echo -en '\n\n'; cat
+        /etc/podinfo/labels; fi; if [[ -e /etc/podinfo/annotations ]]; then echo -en
+        '\n\n'; cat /etc/podinfo/annotations; fi; sleep 5; done;
+      command:
+      - sh
+      - -c
+      env:
+      - name: APP_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: APP_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: COLLECTOR_CONFIG
+        valueFrom:
+          configMapKeyRef:
+            key: COLLECTOR_CONFIG
+            name: red-collector-config
+      - name: INSTRUCTOR_CONFIG
+        valueFrom:
+          configMapKeyRef:
+            key: INSTRUCTOR_CONFIG
+            name: red-collector-config
+      - name: ROUTE
+        value: hotdog-red.gfstst.169.62.225.197.nip.io
+      image: k8s.gcr.io/busybox
+      imagePullPolicy: Always
+      name: client-container
+      resources:
+        requests:
+          cpu: 50m
+          memory: 50Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000270000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/podinfo
+        name: podinfo
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-dxnzt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    imagePullSecrets:
+    - name: default-dockercfg-btp2d
+    nodeName: gfstst.169.62.225.201.nip.io
+    nodeSelector:
+      node-role.kubernetes.io/compute: "true"
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000270000
+      seLinuxOptions:
+        level: s0:c16,c15
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - downwardAPI:
+        defaultMode: 420
+        items:
+        - fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.labels
+          path: labels
+        - fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations
+          path: annotations
+      name: podinfo
+    - name: default-token-dxnzt
+      secret:
+        defaultMode: 420
+        secretName: default-token-dxnzt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2019-09-01T13:47:16Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2019-09-01T13:47:18Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: null
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: 2019-09-01T13:47:16Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://b3abf8934f82726a41fd377027fca346275a9eed875bee64818c54b7c2056f4b
+      image: k8s.gcr.io/busybox:latest
+      imageID: docker-pullable://k8s.gcr.io/busybox@sha256:d8d3bc2c183ed2f9f10e7258f84971202325ee6011ba137112e01e30f206de67
+      lastState: {}
+      name: client-container
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2019-09-01T13:47:18Z
+    hostIP: 169.62.225.201
+    phase: Running
+    podIP: 10.129.0.87
+    qosClass: Burstable
+    startTime: 2019-09-01T13:47:16Z
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      build: two
+      builder: john-doe
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: 2019-09-01T13:47:16Z
+    generation: 1
+    labels:
+      app: red-rainy
+      cluster: test-cluster1
+      rack: rack-22
+      zone: us-est-coast
+    name: red-rainy
+    namespace: red
+    resourceVersion: "601818"
+    selfLink: /apis/apps/v1/namespaces/red/deployments/red-rainy
+    uid: 02527e4a-ccbf-11e9-8c57-0607f5770d4d
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: red-rainy
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: red-rainy
+      spec:
+        containers:
+        - args:
+          - while true; do if [[ -e /etc/podinfo/labels ]]; then echo -en '\n\n';
+            cat /etc/podinfo/labels; fi; if [[ -e /etc/podinfo/annotations ]]; then
+            echo -en '\n\n'; cat /etc/podinfo/annotations; fi; sleep 5; done;
+          command:
+          - sh
+          - -c
+          env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom:
+              configMapKeyRef:
+                key: COLLECTOR_CONFIG
+                name: red-collector-config
+          - name: INSTRUCTOR_CONFIG
+            valueFrom:
+              configMapKeyRef:
+                key: INSTRUCTOR_CONFIG
+                name: red-collector-config
+          - name: ROUTE
+            value: hotdog-red.gfstst.169.62.225.197.nip.io
+          image: k8s.gcr.io/busybox
+          imagePullPolicy: Always
+          name: client-container
+          resources:
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/podinfo
+            name: podinfo
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - downwardAPI:
+            defaultMode: 420
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels
+              path: labels
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.annotations
+              path: annotations
+          name: podinfo
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: 2019-09-01T13:47:18Z
+      lastUpdateTime: 2019-09-01T13:47:18Z
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: 2019-09-01T13:47:16Z
+      lastUpdateTime: 2019-09-01T13:47:18Z
+      message: ReplicaSet "red-rainy-699c974d54" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      build: two
+      builder: john-doe
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: 2019-09-01T13:47:16Z
+    generation: 1
+    labels:
+      app: red-rainy
+      pod-template-hash: "2557530810"
+    name: red-rainy-699c974d54
+    namespace: red
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: red-rainy
+      uid: 02527e4a-ccbf-11e9-8c57-0607f5770d4d
+    resourceVersion: "601817"
+    selfLink: /apis/apps/v1/namespaces/red/replicasets/red-rainy-699c974d54
+    uid: 0254259d-ccbf-11e9-8c57-0607f5770d4d
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: red-rainy
+        pod-template-hash: "2557530810"
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: red-rainy
+          pod-template-hash: "2557530810"
+      spec:
+        containers:
+        - args:
+          - while true; do if [[ -e /etc/podinfo/labels ]]; then echo -en '\n\n';
+            cat /etc/podinfo/labels; fi; if [[ -e /etc/podinfo/annotations ]]; then
+            echo -en '\n\n'; cat /etc/podinfo/annotations; fi; sleep 5; done;
+          command:
+          - sh
+          - -c
+          env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom:
+              configMapKeyRef:
+                key: COLLECTOR_CONFIG
+                name: red-collector-config
+          - name: INSTRUCTOR_CONFIG
+            valueFrom:
+              configMapKeyRef:
+                key: INSTRUCTOR_CONFIG
+                name: red-collector-config
+          - name: ROUTE
+            value: hotdog-red.gfstst.169.62.225.197.nip.io
+          image: k8s.gcr.io/busybox
+          imagePullPolicy: Always
+          name: client-container
+          resources:
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/podinfo
+            name: podinfo
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - downwardAPI:
+            defaultMode: 420
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels
+              path: labels
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.annotations
+              path: annotations
+          name: podinfo
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      openshift.io/host.generated: "true"
+    creationTimestamp: 2019-09-01T02:33:35Z
+    labels:
+      app: red-eagle
+    name: lobo
+    namespace: red
+    resourceVersion: "510172"
+    selfLink: /apis/route.openshift.io/v1/namespaces/red/routes/lobo
+    uid: e6037101-cc60-11e9-8c57-0607f5770d4d
+  spec:
+    host: lobo-red.gfstst.169.62.225.197.nip.io
+    port:
+      targetPort: red-eagle
+    to:
+      kind: Service
+      name: red-eagle
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2019-09-01T02:33:35Z
+        status: "True"
+        type: Admitted
+      host: lobo-red.gfstst.169.62.225.197.nip.io
+      routerName: router
+      wildcardPolicy: None
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

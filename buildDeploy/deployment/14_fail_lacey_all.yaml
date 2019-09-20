@@ -1,0 +1,54 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-lacey
+  namespace: red
+  labels:
+    app: red-lacey
+spec:
+  selector:
+    matchLabels:
+      app: red-lacey
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-lacey
+    spec:
+      containers:
+      - name: red-lacey
+        image: ibmicpcoc/lacey:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        volumeMounts:
+        - name: config-data
+          mountPath: /data
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+      volumes:
+      - name: config-data
+      hostPath: "/data"

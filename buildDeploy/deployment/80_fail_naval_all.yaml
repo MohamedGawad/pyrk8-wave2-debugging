@@ -1,0 +1,60 @@
+---
+--- # Network Policy
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: red-naval-network-policy
+  namespace: red
+spec:
+  podSelector: {}
+  ingress: []
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-naval
+  namespace: red
+  labels:
+    app: red-naval
+spec:
+  selector:
+    matchLabels:
+      app: red-naval
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-naval
+    spec:
+      containers:
+      - name: red-naval
+        image: nginxinc/nginx-unprivileged
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- # Service defs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: red-naval
+  namespace: red
+  labels:
+    app: red-naval
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: red-naval
+  selector:
+    app: red-naval

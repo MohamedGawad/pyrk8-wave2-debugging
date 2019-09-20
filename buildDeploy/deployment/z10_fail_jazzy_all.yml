@@ -1,0 +1,135 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-jazzy-poda
+  namespace: red
+  labels:
+    app: red-jazzy-poda
+    role: ask
+spec:
+  selector:
+    matchLabels:
+      app: red-jazzy-poda
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-jazzy-poda
+        role: ask
+    spec:
+      containers:
+      - name: red-jazzy-poda
+        image: ibmicpcoc/jazzy:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+          - name: POD_ROLE
+            value: "a" 
+          - name: DATA_URL
+            value: "http://red-jazzy-svc" 
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-jazzy-podb
+  namespace: red
+  labels:
+    app: red-jazzy-podb
+    role: ask
+spec:
+  selector:
+    matchLabels:
+      app: red-jazzy-podb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-jazzy-podb
+    spec:
+      containers:
+      - name: red-jazzy-podb
+        image: ibmicpcoc/jazzy:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+          - name: POD_ROLE
+            value: "b" 
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- # Service defs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: red-jazzy-svc
+  namespace: red
+  labels:
+    app: red-jazzy-svc
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 9000
+      protocol: TCP
+      name: red-jazzy-podb
+  selector:
+    app: red-jazzy-podb
+---
+--- # Network Policy
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: jazzy-network-policy
+  namespace: red
+spec:
+  podSelector:
+    matchLabels:
+      app: red-jazzy-svc
+  ingress: []
+    
+    

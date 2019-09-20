@@ -1,0 +1,35 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-lacey
+  namespace: red
+  labels:
+    app: red-lacey
+spec:
+  selector:
+    matchLabels:
+      app: red-lacey
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-lacey
+    spec:
+
+      containers:
+      - name: config-data
+        image: ibmicpcoc/lacey:latest
+        command: ["/bin/bash", "-c", "/app/lacey.sh"]
+        volumeMounts:
+        - name: config-data
+          mountPath: /data
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+      volumes:
+      - name: config-data
+      hostPath: "/data"

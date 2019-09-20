@@ -1,0 +1,174 @@
+Desired state::
+
+
+Secret and Config files using volumes
+
+secret.txt 
+
+ZGVidWcgbWU=  / debug me
+
+
+config.txt
+
+debug
+
+---------
+
+MacBook-Pro:deployment daveweilert$ oc create -f 15_fail_magma_all.yaml
+deployment.apps/red-magma created
+
+
+MacBook-Pro:deployment daveweilert$ oc get po
+NAME                         READY     STATUS              RESTARTS   AGE
+red-magma-6c4b56dbc9-xdms4   0/1       ContainerCreating   0          4s
+red-tools                    1/1       Running             7          7h
+
+
+MacBook-Pro:deployment daveweilert$ oc describe po red-magma-6c4b56dbc9-xdms4
+Name:               red-magma-6c4b56dbc9-xdms4
+Namespace:          red
+Priority:           0
+PriorityClassName:  <none>
+Node:               gfstst.169.62.225.201.nip.io/169.62.225.201
+Start Time:         Thu, 05 Sep 2019 20:47:03 -0400
+Labels:             app=red-magma
+                    pod-template-hash=2706128675
+Annotations:        openshift.io/scc=restricted
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/red-magma-6c4b56dbc9
+Containers:
+  red-magma:
+    Container ID:
+    Image:         ibmicpcoc/magma:latest
+    Image ID:
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      node
+      app.js
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:     50m
+      memory:  50Mi
+    Environment:
+      APP_NAMESPACE:      red (v1:metadata.namespace)
+      APP_NAME:           red-magma-6c4b56dbc9-xdms4 (v1:metadata.name)
+      COLLECTOR_CONFIG:   <set to the key 'COLLECTOR_CONFIG' of config map 'red-collector-config'>   Optional: false
+      INSTRUCTOR_CONFIG:  <set to the key 'INSTRUCTOR_CONFIG' of config map 'red-collector-config'>  Optional: false
+    Mounts:
+      /var/config from configvol (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-dxnzt (ro)
+      /var/secret from secretvol (rw)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  configvol:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      red-configmap-file
+    Optional:  false
+  secretvol:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  red-secret-file
+    Optional:    false
+  default-token-dxnzt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-dxnzt
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  node-role.kubernetes.io/compute=true
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+Events:
+  Type     Reason       Age               From                                   Message
+  ----     ------       ----              ----                                   -------
+  Normal   Scheduled    19s               default-scheduler                      Successfully assigned red/red-magma-6c4b56dbc9-xdms4 to gfstst.169.62.225.201.nip.io
+  Warning  FailedMount  3s (x6 over 19s)  kubelet, gfstst.169.62.225.201.nip.io  MountVolume.SetUp failed for volume "secretvol" : secrets "red-secret-file" not found
+  Warning  FailedMount  3s (x6 over 19s)  kubelet, gfstst.169.62.225.201.nip.io  MountVolume.SetUp failed for volume "configvol" : configmaps "red-configmap-file" not found
+
+
+
+
+
+MacBook-Pro:deployment daveweilert$ oc get po
+NAME                         READY     STATUS    RESTARTS   AGE
+red-magma-6c4b56dbc9-5vrxz   1/1       Running   0          27s
+red-tools                    1/1       Running   7          7h
+MacBook-Pro:deployment daveweilert$ oc describe po red-magma-6c4b56dbc9-5vrxz
+Name:               red-magma-6c4b56dbc9-5vrxz
+Namespace:          red
+Priority:           0
+PriorityClassName:  <none>
+Node:               gfstst.169.62.225.213.nip.io/169.62.225.213
+Start Time:         Thu, 05 Sep 2019 20:50:37 -0400
+Labels:             app=red-magma
+                    pod-template-hash=2706128675
+Annotations:        openshift.io/scc=restricted
+Status:             Running
+IP:                 10.131.0.159
+Controlled By:      ReplicaSet/red-magma-6c4b56dbc9
+Containers:
+  red-magma:
+    Container ID:  docker://0dc0e704fbae6d5b52daabd85ec72713c64306fb9abb05387fa19a1782241473
+    Image:         ibmicpcoc/magma:latest
+    Image ID:      docker-pullable://docker.io/ibmicpcoc/magma@sha256:77bef23eb3f4fc1d3ec0bc632c1972a8bcda27cdc6869ae06b2fa01316a17228
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      node
+      app.js
+    State:          Running
+      Started:      Thu, 05 Sep 2019 20:50:42 -0400
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:     50m
+      memory:  50Mi
+    Environment:
+      APP_NAMESPACE:      red (v1:metadata.namespace)
+      APP_NAME:           red-magma-6c4b56dbc9-5vrxz (v1:metadata.name)
+      COLLECTOR_CONFIG:   <set to the key 'COLLECTOR_CONFIG' of config map 'red-collector-config'>   Optional: false
+      INSTRUCTOR_CONFIG:  <set to the key 'INSTRUCTOR_CONFIG' of config map 'red-collector-config'>  Optional: false
+    Mounts:
+      /var/config from configvol (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-dxnzt (ro)
+      /var/secret from secretvol (rw)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  configvol:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      red-configmap-file
+    Optional:  false
+  secretvol:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  red-secret-file
+    Optional:    false
+  default-token-dxnzt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-dxnzt
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  node-role.kubernetes.io/compute=true
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+Events:
+  Type    Reason     Age   From                                   Message
+  ----    ------     ----  ----                                   -------
+  Normal  Scheduled  40s   default-scheduler                      Successfully assigned red/red-magma-6c4b56dbc9-5vrxz to gfstst.169.62.225.213.nip.io
+  Normal  Pulling    38s   kubelet, gfstst.169.62.225.213.nip.io  pulling image "ibmicpcoc/magma:latest"
+  Normal  Pulled     35s   kubelet, gfstst.169.62.225.213.nip.io  Successfully pulled image "ibmicpcoc/magma:latest"
+  Normal  Created    35s   kubelet, gfstst.169.62.225.213.nip.io  Created container
+  Normal  Started    35s   kubelet, gfstst.169.62.225.213.nip.io  Started container
+
+
+MacBook-Pro:deployment daveweilert$

@@ -1,0 +1,80 @@
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    openshift.io/description: A user that can get basic information about projects.
+    openshift.io/reconcile-protect: "false"
+  creationTimestamp: 2019-08-29T12:57:34Z
+  name: basic-user
+  resourceVersion: "97"
+  selfLink: /apis/authorization.openshift.io/v1/clusterroles/basic-user
+  uid: 92104c1b-ca5c-11e9-8c57-0607f5770d4d
+rules:
+- apiGroups:
+  - ""
+  - user.openshift.io
+  attributeRestrictions: null
+  resourceNames:
+  - "~"
+  resources:
+  - users
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  - project.openshift.io
+  attributeRestrictions: null
+  resources:
+  - projectrequests
+  verbs:
+  - list
+- apiGroups:
+  - ""
+  - authorization.openshift.io
+  attributeRestrictions: null
+  resources:
+  - clusterroles
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - rbac.authorization.k8s.io
+  attributeRestrictions: null
+  resources:
+  - clusterroles
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - storage.k8s.io
+  attributeRestrictions: null
+  resources:
+  - storageclasses
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - ""
+  - project.openshift.io
+  attributeRestrictions: null
+  resources:
+  - projects
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - authorization.openshift.io
+  attributeRestrictions: null
+  resources:
+  - selfsubjectrulesreviews
+  verbs:
+  - create
+- apiGroups:
+  - authorization.k8s.io
+  attributeRestrictions: null
+  resources:
+  - selfsubjectaccessreviews
+  verbs:
+  - create

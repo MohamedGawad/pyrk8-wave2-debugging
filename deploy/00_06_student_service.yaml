@@ -1,0 +1,882 @@
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: red-student-ui
+  namespace: red
+  labels:
+    app: red-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31001
+      targetPort: 3000
+      protocol: TCP
+      name: red-student-ui
+  selector:
+    app: red-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tan-student-ui
+  namespace: tan
+  labels:
+    app: tan-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31002
+      targetPort: 3000
+      protocol: TCP
+      name: tan-student-ui
+  selector:
+    app: tan-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aqua-student-ui
+  namespace: aqua
+  labels:
+    app: aqua-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31003
+      targetPort: 3000
+      protocol: TCP
+      name: aqua-student-ui
+  selector:
+    app: aqua-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue-student-ui
+  namespace: blue
+  labels:
+    app: blue-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31004
+      targetPort: 3000
+      protocol: TCP
+      name: blue-student-ui
+  selector:
+    app: blue-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gold-student-ui
+  namespace: gold
+  labels:
+    app: gold-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31005
+      targetPort: 3000
+      protocol: TCP
+      name: gold-student-ui
+  selector:
+    app: gold-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gray-student-ui
+  namespace: gray
+  labels:
+    app: gray-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31006
+      targetPort: 3000
+      protocol: TCP
+      name: gray-student-ui
+  selector:
+    app: gray-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lime-student-ui
+  namespace: lime
+  labels:
+    app: lime-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31007
+      targetPort: 3000
+      protocol: TCP
+      name: lime-student-ui
+  selector:
+    app: lime-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: navy-student-ui
+  namespace: navy
+  labels:
+    app: navy-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31008
+      targetPort: 3000
+      protocol: TCP
+      name: navy-student-ui
+  selector:
+    app: navy-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: peru-student-ui
+  namespace: peru
+  labels:
+    app: peru-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31009
+      targetPort: 3000
+      protocol: TCP
+      name: peru-student-ui
+  selector:
+    app: peru-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pink-student-ui
+  namespace: pink
+  labels:
+    app: pink-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31010
+      targetPort: 3000
+      protocol: TCP
+      name: pink-student-ui
+  selector:
+    app: pink-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plum-student-ui
+  namespace: plum
+  labels:
+    app: plum-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31011
+      targetPort: 3000
+      protocol: TCP
+      name: plum-student-ui
+  selector:
+    app: plum-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: teal-student-ui
+  namespace: teal
+  labels:
+    app: teal-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31012
+      targetPort: 3000
+      protocol: TCP
+      name: teal-student-ui
+  selector:
+    app: teal-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-student-ui
+  namespace: azure
+  labels:
+    app: azure-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31013
+      targetPort: 3000
+      protocol: TCP
+      name: azure-student-ui
+  selector:
+    app: azure-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: beige-student-ui
+  namespace: beige
+  labels:
+    app: beige-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31014
+      targetPort: 3000
+      protocol: TCP
+      name: beige-student-ui
+  selector:
+    app: beige-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: black-student-ui
+  namespace: black
+  labels:
+    app: black-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31015
+      targetPort: 3000
+      protocol: TCP
+      name: black-student-ui
+  selector:
+    app: black-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: brown-student-ui
+  namespace: brown
+  labels:
+    app: brown-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31016
+      targetPort: 3000
+      protocol: TCP
+      name: brown-student-ui
+  selector:
+    app: brown-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coral-student-ui
+  namespace: coral
+  labels:
+    app: coral-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31017
+      targetPort: 3000
+      protocol: TCP
+      name: coral-student-ui
+  selector:
+    app: coral-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-student-ui
+  namespace: green
+  labels:
+    app: green-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31018
+      targetPort: 3000
+      protocol: TCP
+      name: green-student-ui
+  selector:
+    app: green-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: khaki-student-ui
+  namespace: khaki
+  labels:
+    app: khaki-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31019
+      targetPort: 3000
+      protocol: TCP
+      name: khaki-student-ui
+  selector:
+    app: khaki-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: olive-student-ui
+  namespace: olive
+  labels:
+    app: olive-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31020
+      targetPort: 3000
+      protocol: TCP
+      name: olive-student-ui
+  selector:
+    app: olive-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wheat-student-ui
+  namespace: wheat
+  labels:
+    app: wheat-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31021
+      targetPort: 3000
+      protocol: TCP
+      name: wheat-student-ui
+  selector:
+    app: wheat-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: indigo-student-ui
+  namespace: indigo
+  labels:
+    app: indigo-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31022
+      targetPort: 3000
+      protocol: TCP
+      name: indigo-student-ui
+  selector:
+    app: indigo-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maroon-student-ui
+  namespace: maroon
+  labels:
+    app: maroon-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31023
+      targetPort: 3000
+      protocol: TCP
+      name: maroon-student-ui
+  selector:
+    app: maroon-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orange-student-ui
+  namespace: orange
+  labels:
+    app: orange-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31024
+      targetPort: 3000
+      protocol: TCP
+      name: orange-student-ui
+  selector:
+    app: orange-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: purple-student-ui
+  namespace: purple
+  labels:
+    app: purple-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31025
+      targetPort: 3000
+      protocol: TCP
+      name: purple-student-ui
+  selector:
+    app: purple-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salmon-student-ui
+  namespace: salmon
+  labels:
+    app: salmon-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31026
+      targetPort: 3000
+      protocol: TCP
+      name: salmon-student-ui
+  selector:
+    app: salmon-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sienna-student-ui
+  namespace: sienna
+  labels:
+    app: sienna-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31027
+      targetPort: 3000
+      protocol: TCP
+      name: sienna-student-ui
+  selector:
+    app: sienna-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomato-student-ui
+  namespace: tomato
+  labels:
+    app: tomato-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31028
+      targetPort: 3000
+      protocol: TCP
+      name: tomato-student-ui
+  selector:
+    app: tomato-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: violet-student-ui
+  namespace: violet
+  labels:
+    app: violet-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31029
+      targetPort: 3000
+      protocol: TCP
+      name: violet-student-ui
+  selector:
+    app: violet-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yellow-student-ui
+  namespace: yellow
+  labels:
+    app: yellow-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31030
+      targetPort: 3000
+      protocol: TCP
+      name: yellow-student-ui
+  selector:
+    app: yellow-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crimson-student-ui
+  namespace: crimson
+  labels:
+    app: crimson-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31031
+      targetPort: 3000
+      protocol: TCP
+      name: crimson-student-ui
+  selector:
+    app: crimson-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: darkred-student-ui
+  namespace: darkred
+  labels:
+    app: darkred-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31032
+      targetPort: 3000
+      protocol: TCP
+      name: darkred-student-ui
+  selector:
+    app: darkred-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dimgray-student-ui
+  namespace: dimgray
+  labels:
+    app: dimgray-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31033
+      targetPort: 3000
+      protocol: TCP
+      name: dimgray-student-ui
+  selector:
+    app: dimgray-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fuchsia-student-ui
+  namespace: fuchsia
+  labels:
+    app: fuchsia-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31034
+      targetPort: 3000
+      protocol: TCP
+      name: fuchsia-student-ui
+  selector:
+    app: fuchsia-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotpink-student-ui
+  namespace: hotpink
+  labels:
+    app: hotpink-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31035
+      targetPort: 3000
+      protocol: TCP
+      name: hotpink-student-ui
+  selector:
+    app: hotpink-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: magenta-student-ui
+  namespace: magenta
+  labels:
+    app: magenta-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31036
+      targetPort: 3000
+      protocol: TCP
+      name: magenta-student-ui
+  selector:
+    app: magenta-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: skyblue-student-ui
+  namespace: skyblue
+  labels:
+    app: skyblue-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31037
+      targetPort: 3000
+      protocol: TCP
+      name: skyblue-student-ui
+  selector:
+    app: skyblue-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: thistle-student-ui
+  namespace: thistle
+  labels:
+    app: thistle-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31038
+      targetPort: 3000
+      protocol: TCP
+      name: thistle-student-ui
+  selector:
+    app: thistle-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: darkblue-student-ui
+  namespace: darkblue
+  labels:
+    app: darkblue-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31039
+      targetPort: 3000
+      protocol: TCP
+      name: darkblue-student-ui
+  selector:
+    app: darkblue-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: darkcyan-student-ui
+  namespace: darkcyan
+  labels:
+    app: darkcyan-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31040
+      targetPort: 3000
+      protocol: TCP
+      name: darkcyan-student-ui
+  selector:
+    app: darkcyan-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: darkgray-student-ui
+  namespace: darkgray
+  labels:
+    app: darkgray-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31041
+      targetPort: 3000
+      protocol: TCP
+      name: darkgray-student-ui
+  selector:
+    app: darkgray-student-ui
+---
+--- #
+--- # Create Servie for each team/student
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deeppink-student-ui
+  namespace: deeppink
+  labels:
+    app: deeppink-student-ui
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31042
+      targetPort: 3000
+      protocol: TCP
+      name: deeppink-student-ui
+  selector:
+    app: deeppink-student-ui
+---

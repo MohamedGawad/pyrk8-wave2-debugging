@@ -1,0 +1,1782 @@
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: red
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: red-collector-config
+  namespace: red
+data:
+  COLLECTOR_CONFIG: 'http://red-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tan
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tan-collector-config
+  namespace: tan
+data:
+  COLLECTOR_CONFIG: 'http://tan-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aqua
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aqua-collector-config
+  namespace: aqua
+data:
+  COLLECTOR_CONFIG: 'http://aqua-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blue-collector-config
+  namespace: blue
+data:
+  COLLECTOR_CONFIG: 'http://blue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gold
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gold-collector-config
+  namespace: gold
+data:
+  COLLECTOR_CONFIG: 'http://gold-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gray
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gray-collector-config
+  namespace: gray
+data:
+  COLLECTOR_CONFIG: 'http://gray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lime
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lime-collector-config
+  namespace: lime
+data:
+  COLLECTOR_CONFIG: 'http://lime-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: navy
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: navy-collector-config
+  namespace: navy
+data:
+  COLLECTOR_CONFIG: 'http://navy-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: peru
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: peru-collector-config
+  namespace: peru
+data:
+  COLLECTOR_CONFIG: 'http://peru-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pink
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pink-collector-config
+  namespace: pink
+data:
+  COLLECTOR_CONFIG: 'http://pink-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: plum
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: plum-collector-config
+  namespace: plum
+data:
+  COLLECTOR_CONFIG: 'http://plum-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: teal
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teal-collector-config
+  namespace: teal
+data:
+  COLLECTOR_CONFIG: 'http://teal-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: azure
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: azure-collector-config
+  namespace: azure
+data:
+  COLLECTOR_CONFIG: 'http://azure-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: beige
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: beige-collector-config
+  namespace: beige
+data:
+  COLLECTOR_CONFIG: 'http://beige-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: black
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: black-collector-config
+  namespace: black
+data:
+  COLLECTOR_CONFIG: 'http://black-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: brown
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: brown-collector-config
+  namespace: brown
+data:
+  COLLECTOR_CONFIG: 'http://brown-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: coral
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coral-collector-config
+  namespace: coral
+data:
+  COLLECTOR_CONFIG: 'http://coral-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: green
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: green-collector-config
+  namespace: green
+data:
+  COLLECTOR_CONFIG: 'http://green-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: khaki
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: khaki-collector-config
+  namespace: khaki
+data:
+  COLLECTOR_CONFIG: 'http://khaki-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: olive
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: olive-collector-config
+  namespace: olive
+data:
+  COLLECTOR_CONFIG: 'http://olive-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: wheat
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wheat-collector-config
+  namespace: wheat
+data:
+  COLLECTOR_CONFIG: 'http://wheat-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: indigo
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: indigo-collector-config
+  namespace: indigo
+data:
+  COLLECTOR_CONFIG: 'http://indigo-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: maroon
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maroon-collector-config
+  namespace: maroon
+data:
+  COLLECTOR_CONFIG: 'http://maroon-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: orange
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orange-collector-config
+  namespace: orange
+data:
+  COLLECTOR_CONFIG: 'http://orange-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: purple
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: purple-collector-config
+  namespace: purple
+data:
+  COLLECTOR_CONFIG: 'http://purple-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: salmon
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: salmon-collector-config
+  namespace: salmon
+data:
+  COLLECTOR_CONFIG: 'http://salmon-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sienna
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sienna-collector-config
+  namespace: sienna
+data:
+  COLLECTOR_CONFIG: 'http://sienna-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tomato
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tomato-collector-config
+  namespace: tomato
+data:
+  COLLECTOR_CONFIG: 'http://tomato-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: violet
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: violet-collector-config
+  namespace: violet
+data:
+  COLLECTOR_CONFIG: 'http://violet-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: yellow
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yellow-collector-config
+  namespace: yellow
+data:
+  COLLECTOR_CONFIG: 'http://yellow-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: crimson
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crimson-collector-config
+  namespace: crimson
+data:
+  COLLECTOR_CONFIG: 'http://crimson-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkred
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkred-collector-config
+  namespace: darkred
+data:
+  COLLECTOR_CONFIG: 'http://darkred-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dimgray
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dimgray-collector-config
+  namespace: dimgray
+data:
+  COLLECTOR_CONFIG: 'http://dimgray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fuchsia
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fuchsia-collector-config
+  namespace: fuchsia
+data:
+  COLLECTOR_CONFIG: 'http://fuchsia-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hotpink
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hotpink-collector-config
+  namespace: hotpink
+data:
+  COLLECTOR_CONFIG: 'http://hotpink-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: magenta
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: magenta-collector-config
+  namespace: magenta
+data:
+  COLLECTOR_CONFIG: 'http://magenta-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: skyblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: skyblue-collector-config
+  namespace: skyblue
+data:
+  COLLECTOR_CONFIG: 'http://skyblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: thistle
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: thistle-collector-config
+  namespace: thistle
+data:
+  COLLECTOR_CONFIG: 'http://thistle-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkblue-collector-config
+  namespace: darkblue
+data:
+  COLLECTOR_CONFIG: 'http://darkblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkcyan
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkcyan-collector-config
+  namespace: darkcyan
+data:
+  COLLECTOR_CONFIG: 'http://darkcyan-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkgray
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkgray-collector-config
+  namespace: darkgray
+data:
+  COLLECTOR_CONFIG: 'http://darkgray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: deeppink
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deeppink-collector-config
+  namespace: deeppink
+data:
+  COLLECTOR_CONFIG: 'http://deeppink-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: honeydew
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: honeydew-collector-config
+  namespace: honeydew
+data:
+  COLLECTOR_CONFIG: 'http://honeydew-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: seagreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: seagreen-collector-config
+  namespace: seagreen
+data:
+  COLLECTOR_CONFIG: 'http://seagreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: burlywood
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: burlywood-collector-config
+  namespace: burlywood
+data:
+  COLLECTOR_CONFIG: 'http://burlywood-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cadetblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cadetblue-collector-config
+  namespace: cadetblue
+data:
+  COLLECTOR_CONFIG: 'http://cadetblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: chocolate
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chocolate-collector-config
+  namespace: chocolate
+data:
+  COLLECTOR_CONFIG: 'http://chocolate-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkgreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkgreen-collector-config
+  namespace: darkgreen
+data:
+  COLLECTOR_CONFIG: 'http://darkgreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkkhaki
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkkhaki-collector-config
+  namespace: darkkhaki
+data:
+  COLLECTOR_CONFIG: 'http://darkkhaki-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: firebrick
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: firebrick-collector-config
+  namespace: firebrick
+data:
+  COLLECTOR_CONFIG: 'http://firebrick-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: goldenrod
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: goldenrod-collector-config
+  namespace: goldenrod
+data:
+  COLLECTOR_CONFIG: 'http://goldenrod-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: indianred
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: indianred-collector-config
+  namespace: indianred
+data:
+  COLLECTOR_CONFIG: 'http://indianred-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lawngreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lawngreen-collector-config
+  namespace: lawngreen
+data:
+  COLLECTOR_CONFIG: 'http://lawngreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightblue-collector-config
+  namespace: lightblue
+data:
+  COLLECTOR_CONFIG: 'http://lightblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightgray
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightgray-collector-config
+  namespace: lightgray
+data:
+  COLLECTOR_CONFIG: 'http://lightgray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightpink
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightpink-collector-config
+  namespace: lightpink
+data:
+  COLLECTOR_CONFIG: 'http://lightpink-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: limegreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: limegreen-collector-config
+  namespace: limegreen
+data:
+  COLLECTOR_CONFIG: 'http://limegreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: olivedrab
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: olivedrab-collector-config
+  namespace: olivedrab
+data:
+  COLLECTOR_CONFIG: 'http://olivedrab-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: orangered
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orangered-collector-config
+  namespace: orangered
+data:
+  COLLECTOR_CONFIG: 'http://orangered-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: palegreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: palegreen-collector-config
+  namespace: palegreen
+data:
+  COLLECTOR_CONFIG: 'http://palegreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: peachpuff
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: peachpuff-collector-config
+  namespace: peachpuff
+data:
+  COLLECTOR_CONFIG: 'http://peachpuff-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rosybrown
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rosybrown-collector-config
+  namespace: rosybrown
+data:
+  COLLECTOR_CONFIG: 'http://rosybrown-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: royalblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: royalblue-collector-config
+  namespace: royalblue
+data:
+  COLLECTOR_CONFIG: 'http://royalblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: slateblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: slateblue-collector-config
+  namespace: slateblue
+data:
+  COLLECTOR_CONFIG: 'http://slateblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: slategray
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: slategray-collector-config
+  namespace: slategray
+data:
+  COLLECTOR_CONFIG: 'http://slategray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: steelblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: steelblue-collector-config
+  namespace: steelblue
+data:
+  COLLECTOR_CONFIG: 'http://steelblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: turquoise
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: turquoise-collector-config
+  namespace: turquoise
+data:
+  COLLECTOR_CONFIG: 'http://turquoise-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aquamarine
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aquamarine-collector-config
+  namespace: aquamarine
+data:
+  COLLECTOR_CONFIG: 'http://aquamarine-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blueviolet
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blueviolet-collector-config
+  namespace: blueviolet
+data:
+  COLLECTOR_CONFIG: 'http://blueviolet-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darksalmon
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darksalmon-collector-config
+  namespace: darksalmon
+data:
+  COLLECTOR_CONFIG: 'http://darksalmon-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkviolet
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkviolet-collector-config
+  namespace: darkviolet
+data:
+  COLLECTOR_CONFIG: 'http://darkviolet-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dodgerblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dodgerblue-collector-config
+  namespace: dodgerblue
+data:
+  COLLECTOR_CONFIG: 'http://dodgerblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightcoral
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightcoral-collector-config
+  namespace: lightcoral
+data:
+  COLLECTOR_CONFIG: 'http://lightcoral-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightgreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightgreen-collector-config
+  namespace: lightgreen
+data:
+  COLLECTOR_CONFIG: 'http://lightgreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumblue-collector-config
+  namespace: mediumblue
+data:
+  COLLECTOR_CONFIG: 'http://mediumblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sandybrown
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sandybrown-collector-config
+  namespace: sandybrown
+data:
+  COLLECTOR_CONFIG: 'http://sandybrown-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkmagenta
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkmagenta-collector-config
+  namespace: darkmagenta
+data:
+  COLLECTOR_CONFIG: 'http://darkmagenta-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: forestgreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: forestgreen-collector-config
+  namespace: forestgreen
+data:
+  COLLECTOR_CONFIG: 'http://forestgreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: greenyellow
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: greenyellow-collector-config
+  namespace: greenyellow
+data:
+  COLLECTOR_CONFIG: 'http://greenyellow-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: navajowhite
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: navajowhite-collector-config
+  namespace: navajowhite
+data:
+  COLLECTOR_CONFIG: 'http://navajowhite-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: saddlebrown
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: saddlebrown-collector-config
+  namespace: saddlebrown
+data:
+  COLLECTOR_CONFIG: 'http://saddlebrown-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: springgreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: springgreen-collector-config
+  namespace: springgreen
+data:
+  COLLECTOR_CONFIG: 'http://springgreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: yellowgreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yellowgreen-collector-config
+  namespace: yellowgreen
+data:
+  COLLECTOR_CONFIG: 'http://yellowgreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkseagreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkseagreen-collector-config
+  namespace: darkseagreen
+data:
+  COLLECTOR_CONFIG: 'http://darkseagreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumorchid
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumorchid-collector-config
+  namespace: mediumorchid
+data:
+  COLLECTOR_CONFIG: 'http://mediumorchid-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumpurple
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumpurple-collector-config
+  namespace: mediumpurple
+data:
+  COLLECTOR_CONFIG: 'http://mediumpurple-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: midnightblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: midnightblue-collector-config
+  namespace: midnightblue
+data:
+  COLLECTOR_CONFIG: 'http://midnightblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkgoldenrod
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkgoldenrod-collector-config
+  namespace: darkgoldenrod
+data:
+  COLLECTOR_CONFIG: 'http://darkgoldenrod-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkslateblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkslateblue-collector-config
+  namespace: darkslateblue
+data:
+  COLLECTOR_CONFIG: 'http://darkslateblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightseagreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightseagreen-collector-config
+  namespace: lightseagreen
+data:
+  COLLECTOR_CONFIG: 'http://lightseagreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: palevioletred
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: palevioletred-collector-config
+  namespace: palevioletred
+data:
+  COLLECTOR_CONFIG: 'http://palevioletred-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cornflowerblue
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cornflowerblue-collector-config
+  namespace: cornflowerblue
+data:
+  COLLECTOR_CONFIG: 'http://cornflowerblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkolivegreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkolivegreen-collector-config
+  namespace: darkolivegreen
+data:
+  COLLECTOR_CONFIG: 'http://darkolivegreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightslategray
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightslategray-collector-config
+  namespace: lightslategray
+data:
+  COLLECTOR_CONFIG: 'http://lightslategray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumseagreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumseagreen-collector-config
+  namespace: mediumseagreen
+data:
+  COLLECTOR_CONFIG: 'http://mediumseagreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumturquoise
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumturquoise-collector-config
+  namespace: mediumturquoise
+data:
+  COLLECTOR_CONFIG: 'http://mediumturquoise-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumvioletred
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumvioletred-collector-config
+  namespace: mediumvioletred
+data:
+  COLLECTOR_CONFIG: 'http://mediumvioletred-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumaquamarine
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumaquamarine-collector-config
+  namespace: mediumaquamarine
+data:
+  COLLECTOR_CONFIG: 'http://mediumaquamarine-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediumspringgreen
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediumspringgreen-collector-config
+  namespace: mediumspringgreen
+data:
+  COLLECTOR_CONFIG: 'http://mediumspringgreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'

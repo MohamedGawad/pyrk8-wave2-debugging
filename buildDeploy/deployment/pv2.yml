@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: red-pv2 
+  labels:
+    user: red
+spec:
+  capacity:
+    storage: 1Mi 
+  accessModes:
+  - ReadWriteOnce 
+  nfs: 
+    path: /IBM02SV1676618_28/data01/red
+    server: fsf-dal1301j-fz.adn.networklayer.com 
+  persistentVolumeReclaimPolicy: Retain     

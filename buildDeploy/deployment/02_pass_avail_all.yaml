@@ -1,0 +1,4851 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-avail
+  namespace: red
+  labels:
+    app: red-avail
+spec:
+  selector:
+    matchLabels:
+      app: red-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-avail
+    spec:
+      containers:
+      - name: red-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-avail
+  namespace: tan
+  labels:
+    app: tan-avail
+spec:
+  selector:
+    matchLabels:
+      app: tan-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-avail
+    spec:
+      containers:
+      - name: tan-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-avail
+  namespace: aqua
+  labels:
+    app: aqua-avail
+spec:
+  selector:
+    matchLabels:
+      app: aqua-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-avail
+    spec:
+      containers:
+      - name: aqua-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-avail
+  namespace: blue
+  labels:
+    app: blue-avail
+spec:
+  selector:
+    matchLabels:
+      app: blue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-avail
+    spec:
+      containers:
+      - name: blue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-avail
+  namespace: gold
+  labels:
+    app: gold-avail
+spec:
+  selector:
+    matchLabels:
+      app: gold-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-avail
+    spec:
+      containers:
+      - name: gold-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-avail
+  namespace: gray
+  labels:
+    app: gray-avail
+spec:
+  selector:
+    matchLabels:
+      app: gray-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-avail
+    spec:
+      containers:
+      - name: gray-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-avail
+  namespace: lime
+  labels:
+    app: lime-avail
+spec:
+  selector:
+    matchLabels:
+      app: lime-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-avail
+    spec:
+      containers:
+      - name: lime-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-avail
+  namespace: navy
+  labels:
+    app: navy-avail
+spec:
+  selector:
+    matchLabels:
+      app: navy-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-avail
+    spec:
+      containers:
+      - name: navy-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peru-avail
+  namespace: peru
+  labels:
+    app: peru-avail
+spec:
+  selector:
+    matchLabels:
+      app: peru-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: peru-avail
+    spec:
+      containers:
+      - name: peru-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peru-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peru-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-avail
+  namespace: pink
+  labels:
+    app: pink-avail
+spec:
+  selector:
+    matchLabels:
+      app: pink-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-avail
+    spec:
+      containers:
+      - name: pink-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-avail
+  namespace: plum
+  labels:
+    app: plum-avail
+spec:
+  selector:
+    matchLabels:
+      app: plum-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-avail
+    spec:
+      containers:
+      - name: plum-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-avail
+  namespace: teal
+  labels:
+    app: teal-avail
+spec:
+  selector:
+    matchLabels:
+      app: teal-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-avail
+    spec:
+      containers:
+      - name: teal-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-avail
+  namespace: azure
+  labels:
+    app: azure-avail
+spec:
+  selector:
+    matchLabels:
+      app: azure-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-avail
+    spec:
+      containers:
+      - name: azure-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-avail
+  namespace: beige
+  labels:
+    app: beige-avail
+spec:
+  selector:
+    matchLabels:
+      app: beige-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-avail
+    spec:
+      containers:
+      - name: beige-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-avail
+  namespace: black
+  labels:
+    app: black-avail
+spec:
+  selector:
+    matchLabels:
+      app: black-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-avail
+    spec:
+      containers:
+      - name: black-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-avail
+  namespace: brown
+  labels:
+    app: brown-avail
+spec:
+  selector:
+    matchLabels:
+      app: brown-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-avail
+    spec:
+      containers:
+      - name: brown-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-avail
+  namespace: coral
+  labels:
+    app: coral-avail
+spec:
+  selector:
+    matchLabels:
+      app: coral-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-avail
+    spec:
+      containers:
+      - name: coral-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-avail
+  namespace: green
+  labels:
+    app: green-avail
+spec:
+  selector:
+    matchLabels:
+      app: green-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-avail
+    spec:
+      containers:
+      - name: green-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-avail
+  namespace: khaki
+  labels:
+    app: khaki-avail
+spec:
+  selector:
+    matchLabels:
+      app: khaki-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-avail
+    spec:
+      containers:
+      - name: khaki-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-avail
+  namespace: olive
+  labels:
+    app: olive-avail
+spec:
+  selector:
+    matchLabels:
+      app: olive-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-avail
+    spec:
+      containers:
+      - name: olive-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-avail
+  namespace: wheat
+  labels:
+    app: wheat-avail
+spec:
+  selector:
+    matchLabels:
+      app: wheat-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-avail
+    spec:
+      containers:
+      - name: wheat-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-avail
+  namespace: indigo
+  labels:
+    app: indigo-avail
+spec:
+  selector:
+    matchLabels:
+      app: indigo-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-avail
+    spec:
+      containers:
+      - name: indigo-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-avail
+  namespace: maroon
+  labels:
+    app: maroon-avail
+spec:
+  selector:
+    matchLabels:
+      app: maroon-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-avail
+    spec:
+      containers:
+      - name: maroon-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-avail
+  namespace: orange
+  labels:
+    app: orange-avail
+spec:
+  selector:
+    matchLabels:
+      app: orange-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-avail
+    spec:
+      containers:
+      - name: orange-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-avail
+  namespace: purple
+  labels:
+    app: purple-avail
+spec:
+  selector:
+    matchLabels:
+      app: purple-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-avail
+    spec:
+      containers:
+      - name: purple-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-avail
+  namespace: salmon
+  labels:
+    app: salmon-avail
+spec:
+  selector:
+    matchLabels:
+      app: salmon-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-avail
+    spec:
+      containers:
+      - name: salmon-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sienna-avail
+  namespace: sienna
+  labels:
+    app: sienna-avail
+spec:
+  selector:
+    matchLabels:
+      app: sienna-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sienna-avail
+    spec:
+      containers:
+      - name: sienna-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sienna-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sienna-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-avail
+  namespace: tomato
+  labels:
+    app: tomato-avail
+spec:
+  selector:
+    matchLabels:
+      app: tomato-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-avail
+    spec:
+      containers:
+      - name: tomato-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: violet-avail
+  namespace: violet
+  labels:
+    app: violet-avail
+spec:
+  selector:
+    matchLabels:
+      app: violet-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: violet-avail
+    spec:
+      containers:
+      - name: violet-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: violet-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: violet-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-avail
+  namespace: yellow
+  labels:
+    app: yellow-avail
+spec:
+  selector:
+    matchLabels:
+      app: yellow-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-avail
+    spec:
+      containers:
+      - name: yellow-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crimson-avail
+  namespace: crimson
+  labels:
+    app: crimson-avail
+spec:
+  selector:
+    matchLabels:
+      app: crimson-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: crimson-avail
+    spec:
+      containers:
+      - name: crimson-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: crimson-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: crimson-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-avail
+  namespace: darkred
+  labels:
+    app: darkred-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkred-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-avail
+    spec:
+      containers:
+      - name: darkred-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dimgray-avail
+  namespace: dimgray
+  labels:
+    app: dimgray-avail
+spec:
+  selector:
+    matchLabels:
+      app: dimgray-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dimgray-avail
+    spec:
+      containers:
+      - name: dimgray-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dimgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dimgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuchsia-avail
+  namespace: fuchsia
+  labels:
+    app: fuchsia-avail
+spec:
+  selector:
+    matchLabels:
+      app: fuchsia-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fuchsia-avail
+    spec:
+      containers:
+      - name: fuchsia-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: fuchsia-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: fuchsia-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotpink-avail
+  namespace: hotpink
+  labels:
+    app: hotpink-avail
+spec:
+  selector:
+    matchLabels:
+      app: hotpink-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotpink-avail
+    spec:
+      containers:
+      - name: hotpink-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: hotpink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: hotpink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-avail
+  namespace: magenta
+  labels:
+    app: magenta-avail
+spec:
+  selector:
+    matchLabels:
+      app: magenta-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-avail
+    spec:
+      containers:
+      - name: magenta-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skyblue-avail
+  namespace: skyblue
+  labels:
+    app: skyblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: skyblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: skyblue-avail
+    spec:
+      containers:
+      - name: skyblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: skyblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: skyblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thistle-avail
+  namespace: thistle
+  labels:
+    app: thistle-avail
+spec:
+  selector:
+    matchLabels:
+      app: thistle-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: thistle-avail
+    spec:
+      containers:
+      - name: thistle-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: thistle-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: thistle-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkblue-avail
+  namespace: darkblue
+  labels:
+    app: darkblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkblue-avail
+    spec:
+      containers:
+      - name: darkblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkcyan-avail
+  namespace: darkcyan
+  labels:
+    app: darkcyan-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkcyan-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkcyan-avail
+    spec:
+      containers:
+      - name: darkcyan-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkcyan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkcyan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-avail
+  namespace: darkgray
+  labels:
+    app: darkgray-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-avail
+    spec:
+      containers:
+      - name: darkgray-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-avail
+  namespace: deeppink
+  labels:
+    app: deeppink-avail
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-avail
+    spec:
+      containers:
+      - name: deeppink-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: honeydew-avail
+  namespace: honeydew
+  labels:
+    app: honeydew-avail
+spec:
+  selector:
+    matchLabels:
+      app: honeydew-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: honeydew-avail
+    spec:
+      containers:
+      - name: honeydew-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: honeydew-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: honeydew-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seagreen-avail
+  namespace: seagreen
+  labels:
+    app: seagreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: seagreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: seagreen-avail
+    spec:
+      containers:
+      - name: seagreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: seagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: seagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-avail
+  namespace: burlywood
+  labels:
+    app: burlywood-avail
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-avail
+    spec:
+      containers:
+      - name: burlywood-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cadetblue-avail
+  namespace: cadetblue
+  labels:
+    app: cadetblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: cadetblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cadetblue-avail
+    spec:
+      containers:
+      - name: cadetblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cadetblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cadetblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chocolate-avail
+  namespace: chocolate
+  labels:
+    app: chocolate-avail
+spec:
+  selector:
+    matchLabels:
+      app: chocolate-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chocolate-avail
+    spec:
+      containers:
+      - name: chocolate-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: chocolate-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: chocolate-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgreen-avail
+  namespace: darkgreen
+  labels:
+    app: darkgreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkgreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgreen-avail
+    spec:
+      containers:
+      - name: darkgreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkkhaki-avail
+  namespace: darkkhaki
+  labels:
+    app: darkkhaki-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkkhaki-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkkhaki-avail
+    spec:
+      containers:
+      - name: darkkhaki-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkkhaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkkhaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-avail
+  namespace: firebrick
+  labels:
+    app: firebrick-avail
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-avail
+    spec:
+      containers:
+      - name: firebrick-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goldenrod-avail
+  namespace: goldenrod
+  labels:
+    app: goldenrod-avail
+spec:
+  selector:
+    matchLabels:
+      app: goldenrod-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: goldenrod-avail
+    spec:
+      containers:
+      - name: goldenrod-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: goldenrod-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: goldenrod-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indianred-avail
+  namespace: indianred
+  labels:
+    app: indianred-avail
+spec:
+  selector:
+    matchLabels:
+      app: indianred-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indianred-avail
+    spec:
+      containers:
+      - name: indianred-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indianred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indianred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lawngreen-avail
+  namespace: lawngreen
+  labels:
+    app: lawngreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: lawngreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lawngreen-avail
+    spec:
+      containers:
+      - name: lawngreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lawngreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lawngreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-avail
+  namespace: lightblue
+  labels:
+    app: lightblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-avail
+    spec:
+      containers:
+      - name: lightblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightgray-avail
+  namespace: lightgray
+  labels:
+    app: lightgray-avail
+spec:
+  selector:
+    matchLabels:
+      app: lightgray-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightgray-avail
+    spec:
+      containers:
+      - name: lightgray-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightpink-avail
+  namespace: lightpink
+  labels:
+    app: lightpink-avail
+spec:
+  selector:
+    matchLabels:
+      app: lightpink-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightpink-avail
+    spec:
+      containers:
+      - name: lightpink-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightpink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightpink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: limegreen-avail
+  namespace: limegreen
+  labels:
+    app: limegreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: limegreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: limegreen-avail
+    spec:
+      containers:
+      - name: limegreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: limegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: limegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olivedrab-avail
+  namespace: olivedrab
+  labels:
+    app: olivedrab-avail
+spec:
+  selector:
+    matchLabels:
+      app: olivedrab-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olivedrab-avail
+    spec:
+      containers:
+      - name: olivedrab-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olivedrab-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olivedrab-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orangered-avail
+  namespace: orangered
+  labels:
+    app: orangered-avail
+spec:
+  selector:
+    matchLabels:
+      app: orangered-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orangered-avail
+    spec:
+      containers:
+      - name: orangered-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orangered-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orangered-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-avail
+  namespace: palegreen
+  labels:
+    app: palegreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-avail
+    spec:
+      containers:
+      - name: palegreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peachpuff-avail
+  namespace: peachpuff
+  labels:
+    app: peachpuff-avail
+spec:
+  selector:
+    matchLabels:
+      app: peachpuff-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: peachpuff-avail
+    spec:
+      containers:
+      - name: peachpuff-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peachpuff-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peachpuff-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rosybrown-avail
+  namespace: rosybrown
+  labels:
+    app: rosybrown-avail
+spec:
+  selector:
+    matchLabels:
+      app: rosybrown-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rosybrown-avail
+    spec:
+      containers:
+      - name: rosybrown-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: rosybrown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: rosybrown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: royalblue-avail
+  namespace: royalblue
+  labels:
+    app: royalblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: royalblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: royalblue-avail
+    spec:
+      containers:
+      - name: royalblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: royalblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: royalblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slateblue-avail
+  namespace: slateblue
+  labels:
+    app: slateblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: slateblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slateblue-avail
+    spec:
+      containers:
+      - name: slateblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slateblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slateblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slategray-avail
+  namespace: slategray
+  labels:
+    app: slategray-avail
+spec:
+  selector:
+    matchLabels:
+      app: slategray-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slategray-avail
+    spec:
+      containers:
+      - name: slategray-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slategray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slategray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-avail
+  namespace: steelblue
+  labels:
+    app: steelblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-avail
+    spec:
+      containers:
+      - name: steelblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: turquoise-avail
+  namespace: turquoise
+  labels:
+    app: turquoise-avail
+spec:
+  selector:
+    matchLabels:
+      app: turquoise-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: turquoise-avail
+    spec:
+      containers:
+      - name: turquoise-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: turquoise-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: turquoise-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aquamarine-avail
+  namespace: aquamarine
+  labels:
+    app: aquamarine-avail
+spec:
+  selector:
+    matchLabels:
+      app: aquamarine-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aquamarine-avail
+    spec:
+      containers:
+      - name: aquamarine-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aquamarine-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aquamarine-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blueviolet-avail
+  namespace: blueviolet
+  labels:
+    app: blueviolet-avail
+spec:
+  selector:
+    matchLabels:
+      app: blueviolet-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blueviolet-avail
+    spec:
+      containers:
+      - name: blueviolet-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blueviolet-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blueviolet-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darksalmon-avail
+  namespace: darksalmon
+  labels:
+    app: darksalmon-avail
+spec:
+  selector:
+    matchLabels:
+      app: darksalmon-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darksalmon-avail
+    spec:
+      containers:
+      - name: darksalmon-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darksalmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darksalmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkviolet-avail
+  namespace: darkviolet
+  labels:
+    app: darkviolet-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkviolet-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkviolet-avail
+    spec:
+      containers:
+      - name: darkviolet-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkviolet-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkviolet-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dodgerblue-avail
+  namespace: dodgerblue
+  labels:
+    app: dodgerblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: dodgerblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dodgerblue-avail
+    spec:
+      containers:
+      - name: dodgerblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dodgerblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dodgerblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightcoral-avail
+  namespace: lightcoral
+  labels:
+    app: lightcoral-avail
+spec:
+  selector:
+    matchLabels:
+      app: lightcoral-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightcoral-avail
+    spec:
+      containers:
+      - name: lightcoral-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightcoral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightcoral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightgreen-avail
+  namespace: lightgreen
+  labels:
+    app: lightgreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: lightgreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightgreen-avail
+    spec:
+      containers:
+      - name: lightgreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumblue-avail
+  namespace: mediumblue
+  labels:
+    app: mediumblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumblue-avail
+    spec:
+      containers:
+      - name: mediumblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sandybrown-avail
+  namespace: sandybrown
+  labels:
+    app: sandybrown-avail
+spec:
+  selector:
+    matchLabels:
+      app: sandybrown-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sandybrown-avail
+    spec:
+      containers:
+      - name: sandybrown-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sandybrown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sandybrown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkmagenta-avail
+  namespace: darkmagenta
+  labels:
+    app: darkmagenta-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkmagenta-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkmagenta-avail
+    spec:
+      containers:
+      - name: darkmagenta-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkmagenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkmagenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forestgreen-avail
+  namespace: forestgreen
+  labels:
+    app: forestgreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: forestgreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: forestgreen-avail
+    spec:
+      containers:
+      - name: forestgreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: forestgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: forestgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greenyellow-avail
+  namespace: greenyellow
+  labels:
+    app: greenyellow-avail
+spec:
+  selector:
+    matchLabels:
+      app: greenyellow-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: greenyellow-avail
+    spec:
+      containers:
+      - name: greenyellow-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: greenyellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: greenyellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navajowhite-avail
+  namespace: navajowhite
+  labels:
+    app: navajowhite-avail
+spec:
+  selector:
+    matchLabels:
+      app: navajowhite-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navajowhite-avail
+    spec:
+      containers:
+      - name: navajowhite-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navajowhite-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navajowhite-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saddlebrown-avail
+  namespace: saddlebrown
+  labels:
+    app: saddlebrown-avail
+spec:
+  selector:
+    matchLabels:
+      app: saddlebrown-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: saddlebrown-avail
+    spec:
+      containers:
+      - name: saddlebrown-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: saddlebrown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: saddlebrown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springgreen-avail
+  namespace: springgreen
+  labels:
+    app: springgreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: springgreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: springgreen-avail
+    spec:
+      containers:
+      - name: springgreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: springgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: springgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellowgreen-avail
+  namespace: yellowgreen
+  labels:
+    app: yellowgreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: yellowgreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellowgreen-avail
+    spec:
+      containers:
+      - name: yellowgreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellowgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellowgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkseagreen-avail
+  namespace: darkseagreen
+  labels:
+    app: darkseagreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkseagreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkseagreen-avail
+    spec:
+      containers:
+      - name: darkseagreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkseagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkseagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumorchid-avail
+  namespace: mediumorchid
+  labels:
+    app: mediumorchid-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumorchid-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumorchid-avail
+    spec:
+      containers:
+      - name: mediumorchid-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumorchid-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumorchid-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumpurple-avail
+  namespace: mediumpurple
+  labels:
+    app: mediumpurple-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumpurple-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumpurple-avail
+    spec:
+      containers:
+      - name: mediumpurple-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumpurple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumpurple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: midnightblue-avail
+  namespace: midnightblue
+  labels:
+    app: midnightblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: midnightblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: midnightblue-avail
+    spec:
+      containers:
+      - name: midnightblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: midnightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: midnightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgoldenrod-avail
+  namespace: darkgoldenrod
+  labels:
+    app: darkgoldenrod-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkgoldenrod-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgoldenrod-avail
+    spec:
+      containers:
+      - name: darkgoldenrod-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgoldenrod-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgoldenrod-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkslateblue-avail
+  namespace: darkslateblue
+  labels:
+    app: darkslateblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkslateblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkslateblue-avail
+    spec:
+      containers:
+      - name: darkslateblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkslateblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkslateblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightseagreen-avail
+  namespace: lightseagreen
+  labels:
+    app: lightseagreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: lightseagreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightseagreen-avail
+    spec:
+      containers:
+      - name: lightseagreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightseagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightseagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palevioletred-avail
+  namespace: palevioletred
+  labels:
+    app: palevioletred-avail
+spec:
+  selector:
+    matchLabels:
+      app: palevioletred-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palevioletred-avail
+    spec:
+      containers:
+      - name: palevioletred-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palevioletred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palevioletred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornflowerblue-avail
+  namespace: cornflowerblue
+  labels:
+    app: cornflowerblue-avail
+spec:
+  selector:
+    matchLabels:
+      app: cornflowerblue-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornflowerblue-avail
+    spec:
+      containers:
+      - name: cornflowerblue-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornflowerblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornflowerblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkolivegreen-avail
+  namespace: darkolivegreen
+  labels:
+    app: darkolivegreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: darkolivegreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkolivegreen-avail
+    spec:
+      containers:
+      - name: darkolivegreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkolivegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkolivegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightslategray-avail
+  namespace: lightslategray
+  labels:
+    app: lightslategray-avail
+spec:
+  selector:
+    matchLabels:
+      app: lightslategray-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightslategray-avail
+    spec:
+      containers:
+      - name: lightslategray-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightslategray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightslategray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumseagreen-avail
+  namespace: mediumseagreen
+  labels:
+    app: mediumseagreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumseagreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumseagreen-avail
+    spec:
+      containers:
+      - name: mediumseagreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumseagreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumseagreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumturquoise-avail
+  namespace: mediumturquoise
+  labels:
+    app: mediumturquoise-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumturquoise-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumturquoise-avail
+    spec:
+      containers:
+      - name: mediumturquoise-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumturquoise-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumturquoise-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumvioletred-avail
+  namespace: mediumvioletred
+  labels:
+    app: mediumvioletred-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumvioletred-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumvioletred-avail
+    spec:
+      containers:
+      - name: mediumvioletred-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumvioletred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumvioletred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumaquamarine-avail
+  namespace: mediumaquamarine
+  labels:
+    app: mediumaquamarine-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumaquamarine-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumaquamarine-avail
+    spec:
+      containers:
+      - name: mediumaquamarine-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumaquamarine-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumaquamarine-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumspringgreen-avail
+  namespace: mediumspringgreen
+  labels:
+    app: mediumspringgreen-avail
+spec:
+  selector:
+    matchLabels:
+      app: mediumspringgreen-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumspringgreen-avail
+    spec:
+      containers:
+      - name: mediumspringgreen-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumspringgreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumspringgreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+---

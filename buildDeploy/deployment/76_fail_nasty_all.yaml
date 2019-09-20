@@ -1,0 +1,65 @@
+---
+--- # ConfigMap 
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: red-nasty-config
+  namespace: red
+data:
+  INDATA: 'entry[0]'
+  OUTDATA: exit[1]
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-nasty
+  namespace: red
+  labels:
+    app: red-nasty
+spec:
+  selector:
+    matchLabels:
+      app: red-nasty
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-nasty
+    spec:
+      containers:
+      - name: red-nasty
+        image: ibmicpcoc/nasty:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+          - name: INDATA
+            valueFrom: 
+              configMapKeyRef:
+                name: red-nasty-config
+                key: INDATA
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+

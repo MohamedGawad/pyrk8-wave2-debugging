@@ -1,0 +1,28 @@
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    class: pyrk8s
+  name: mgmstudent
+rules:
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - persistentvolumes
+  - routes
+  verbs:
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch

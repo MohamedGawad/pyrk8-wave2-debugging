@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: red-pv3
+  labels:
+    user: red
+spec:
+  capacity:
+    storage: 100Gi 
+  accessModes:
+  - ReadWriteOnce 
+  nfs: 
+    path: /storage/red/pv001
+    server: 169.62.225.199
+  persistentVolumeReclaimPolicy: Recycle     

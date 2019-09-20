@@ -1,0 +1,83 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-rainy
+  namespace: red
+  labels:
+    app: red-rainy
+    tool: hammer
+  annotations:
+    build: red-rainy
+    fruit: apple
+    annotation1: "345"
+    annotation2: "456"
+spec:
+  selector:
+    matchLabels:
+      app: red-rainy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-rainy
+    spec:
+      containers:
+      - name: client-container
+        image: k8s.gcr.io/busybox
+        command: ["sh", "-c", "cat /tmp/etc/pod_labels /tmp/etc/pod_annotations"]
+        volumeMounts:
+          - name: podinfo
+            mountPath: /tmp/etc
+            readOnly: false        
+        env:
+        - name: APP_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: APP_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: COLLECTOR_CONFIG
+          valueFrom: 
+            configMapKeyRef:
+              name: red-collector-config
+              key: COLLECTOR_CONFIG
+        - name: INSTRUCTOR_CONFIG
+          valueFrom: 
+            configMapKeyRef:
+              name: red-collector-config
+              key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+      volumes:
+      - name: podinfo
+        downwardAPI:
+          defaultMode: 420
+          items:
+          - fieldRef:
+              fieldPath: metadata.name
+            path: pod_name
+          - fieldRef:
+              fieldPath: metadata.namespace
+            path: pod_namespace
+          - fieldRef:
+              fieldPath: metadata.labels
+            path: pod_labels
+          - fieldRef:
+              fieldPath: metadata.annotations
+            path: pod_annotations  
+    
+  
+  
+  
+  
+  
+  
+  
+  

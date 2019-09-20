@@ -1,0 +1,44 @@
+--- #
+--- # Course :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-lacey
+  namespace: red
+  labels:
+    app: red-lacey
+spec:
+  selector:
+    matchLabels:
+      app: red-lacey
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-lacey
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: workdir
+          mountPath: /usr/share/nginx/html
+      # These containers are run during pod initialization
+      initContainers:
+      - name: install
+        image: busybox
+        command:
+        - wget
+        - "-O"
+        - "/work-dir/index.html"
+        - http://kubernetes.io
+        volumeMounts:
+        - name: workdir
+          mountPath: "/work-dir"
+      dnsPolicy: Default
+      volumes:
+      - name: workdir
+        emptyDir: {}

@@ -1,0 +1,4455 @@
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-student-ui
+  namespace: red
+  labels:
+    app: red-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: red-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-student-ui
+    spec:
+      containers:
+      - name: red-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-student-ui
+  namespace: tan
+  labels:
+    app: tan-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: tan-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-student-ui
+    spec:
+      containers:
+      - name: tan-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-student-ui
+  namespace: aqua
+  labels:
+    app: aqua-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: aqua-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-student-ui
+    spec:
+      containers:
+      - name: aqua-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-student-ui
+  namespace: blue
+  labels:
+    app: blue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: blue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-student-ui
+    spec:
+      containers:
+      - name: blue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-student-ui
+  namespace: gold
+  labels:
+    app: gold-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: gold-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-student-ui
+    spec:
+      containers:
+      - name: gold-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-student-ui
+  namespace: gray
+  labels:
+    app: gray-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: gray-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-student-ui
+    spec:
+      containers:
+      - name: gray-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-student-ui
+  namespace: lime
+  labels:
+    app: lime-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lime-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-student-ui
+    spec:
+      containers:
+      - name: lime-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-student-ui
+  namespace: navy
+  labels:
+    app: navy-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: navy-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-student-ui
+    spec:
+      containers:
+      - name: navy-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peru-student-ui
+  namespace: peru
+  labels:
+    app: peru-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: peru-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: peru-student-ui
+    spec:
+      containers:
+      - name: peru-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peru-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-student-ui
+  namespace: pink
+  labels:
+    app: pink-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: pink-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-student-ui
+    spec:
+      containers:
+      - name: pink-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-student-ui
+  namespace: plum
+  labels:
+    app: plum-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: plum-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-student-ui
+    spec:
+      containers:
+      - name: plum-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-student-ui
+  namespace: teal
+  labels:
+    app: teal-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: teal-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-student-ui
+    spec:
+      containers:
+      - name: teal-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-student-ui
+  namespace: azure
+  labels:
+    app: azure-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: azure-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-student-ui
+    spec:
+      containers:
+      - name: azure-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-student-ui
+  namespace: beige
+  labels:
+    app: beige-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: beige-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-student-ui
+    spec:
+      containers:
+      - name: beige-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-student-ui
+  namespace: black
+  labels:
+    app: black-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: black-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-student-ui
+    spec:
+      containers:
+      - name: black-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-student-ui
+  namespace: brown
+  labels:
+    app: brown-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: brown-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-student-ui
+    spec:
+      containers:
+      - name: brown-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-student-ui
+  namespace: coral
+  labels:
+    app: coral-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: coral-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-student-ui
+    spec:
+      containers:
+      - name: coral-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-student-ui
+  namespace: green
+  labels:
+    app: green-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: green-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-student-ui
+    spec:
+      containers:
+      - name: green-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-student-ui
+  namespace: khaki
+  labels:
+    app: khaki-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: khaki-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-student-ui
+    spec:
+      containers:
+      - name: khaki-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-student-ui
+  namespace: olive
+  labels:
+    app: olive-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: olive-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-student-ui
+    spec:
+      containers:
+      - name: olive-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-student-ui
+  namespace: wheat
+  labels:
+    app: wheat-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: wheat-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-student-ui
+    spec:
+      containers:
+      - name: wheat-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-student-ui
+  namespace: indigo
+  labels:
+    app: indigo-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: indigo-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-student-ui
+    spec:
+      containers:
+      - name: indigo-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-student-ui
+  namespace: maroon
+  labels:
+    app: maroon-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: maroon-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-student-ui
+    spec:
+      containers:
+      - name: maroon-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-student-ui
+  namespace: orange
+  labels:
+    app: orange-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: orange-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-student-ui
+    spec:
+      containers:
+      - name: orange-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-student-ui
+  namespace: purple
+  labels:
+    app: purple-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: purple-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-student-ui
+    spec:
+      containers:
+      - name: purple-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-student-ui
+  namespace: salmon
+  labels:
+    app: salmon-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: salmon-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-student-ui
+    spec:
+      containers:
+      - name: salmon-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sienna-student-ui
+  namespace: sienna
+  labels:
+    app: sienna-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: sienna-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sienna-student-ui
+    spec:
+      containers:
+      - name: sienna-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sienna-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-student-ui
+  namespace: tomato
+  labels:
+    app: tomato-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: tomato-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-student-ui
+    spec:
+      containers:
+      - name: tomato-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: violet-student-ui
+  namespace: violet
+  labels:
+    app: violet-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: violet-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: violet-student-ui
+    spec:
+      containers:
+      - name: violet-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: violet-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-student-ui
+  namespace: yellow
+  labels:
+    app: yellow-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: yellow-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-student-ui
+    spec:
+      containers:
+      - name: yellow-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crimson-student-ui
+  namespace: crimson
+  labels:
+    app: crimson-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: crimson-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: crimson-student-ui
+    spec:
+      containers:
+      - name: crimson-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: crimson-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-student-ui
+  namespace: darkred
+  labels:
+    app: darkred-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkred-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-student-ui
+    spec:
+      containers:
+      - name: darkred-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dimgray-student-ui
+  namespace: dimgray
+  labels:
+    app: dimgray-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: dimgray-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dimgray-student-ui
+    spec:
+      containers:
+      - name: dimgray-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dimgray-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuchsia-student-ui
+  namespace: fuchsia
+  labels:
+    app: fuchsia-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: fuchsia-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fuchsia-student-ui
+    spec:
+      containers:
+      - name: fuchsia-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: fuchsia-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotpink-student-ui
+  namespace: hotpink
+  labels:
+    app: hotpink-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: hotpink-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotpink-student-ui
+    spec:
+      containers:
+      - name: hotpink-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: hotpink-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-student-ui
+  namespace: magenta
+  labels:
+    app: magenta-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: magenta-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-student-ui
+    spec:
+      containers:
+      - name: magenta-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skyblue-student-ui
+  namespace: skyblue
+  labels:
+    app: skyblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: skyblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: skyblue-student-ui
+    spec:
+      containers:
+      - name: skyblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: skyblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thistle-student-ui
+  namespace: thistle
+  labels:
+    app: thistle-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: thistle-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: thistle-student-ui
+    spec:
+      containers:
+      - name: thistle-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: thistle-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkblue-student-ui
+  namespace: darkblue
+  labels:
+    app: darkblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkblue-student-ui
+    spec:
+      containers:
+      - name: darkblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkcyan-student-ui
+  namespace: darkcyan
+  labels:
+    app: darkcyan-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkcyan-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkcyan-student-ui
+    spec:
+      containers:
+      - name: darkcyan-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkcyan-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-student-ui
+  namespace: darkgray
+  labels:
+    app: darkgray-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-student-ui
+    spec:
+      containers:
+      - name: darkgray-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-student-ui
+  namespace: deeppink
+  labels:
+    app: deeppink-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-student-ui
+    spec:
+      containers:
+      - name: deeppink-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: honeydew-student-ui
+  namespace: honeydew
+  labels:
+    app: honeydew-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: honeydew-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: honeydew-student-ui
+    spec:
+      containers:
+      - name: honeydew-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: honeydew-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seagreen-student-ui
+  namespace: seagreen
+  labels:
+    app: seagreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: seagreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: seagreen-student-ui
+    spec:
+      containers:
+      - name: seagreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: seagreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-student-ui
+  namespace: burlywood
+  labels:
+    app: burlywood-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-student-ui
+    spec:
+      containers:
+      - name: burlywood-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cadetblue-student-ui
+  namespace: cadetblue
+  labels:
+    app: cadetblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: cadetblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cadetblue-student-ui
+    spec:
+      containers:
+      - name: cadetblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cadetblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chocolate-student-ui
+  namespace: chocolate
+  labels:
+    app: chocolate-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: chocolate-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chocolate-student-ui
+    spec:
+      containers:
+      - name: chocolate-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: chocolate-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgreen-student-ui
+  namespace: darkgreen
+  labels:
+    app: darkgreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkgreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgreen-student-ui
+    spec:
+      containers:
+      - name: darkgreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkkhaki-student-ui
+  namespace: darkkhaki
+  labels:
+    app: darkkhaki-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkkhaki-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkkhaki-student-ui
+    spec:
+      containers:
+      - name: darkkhaki-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkkhaki-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-student-ui
+  namespace: firebrick
+  labels:
+    app: firebrick-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-student-ui
+    spec:
+      containers:
+      - name: firebrick-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goldenrod-student-ui
+  namespace: goldenrod
+  labels:
+    app: goldenrod-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: goldenrod-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: goldenrod-student-ui
+    spec:
+      containers:
+      - name: goldenrod-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: goldenrod-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indianred-student-ui
+  namespace: indianred
+  labels:
+    app: indianred-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: indianred-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indianred-student-ui
+    spec:
+      containers:
+      - name: indianred-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indianred-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lawngreen-student-ui
+  namespace: lawngreen
+  labels:
+    app: lawngreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lawngreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lawngreen-student-ui
+    spec:
+      containers:
+      - name: lawngreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lawngreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-student-ui
+  namespace: lightblue
+  labels:
+    app: lightblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-student-ui
+    spec:
+      containers:
+      - name: lightblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightgray-student-ui
+  namespace: lightgray
+  labels:
+    app: lightgray-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lightgray-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightgray-student-ui
+    spec:
+      containers:
+      - name: lightgray-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgray-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightpink-student-ui
+  namespace: lightpink
+  labels:
+    app: lightpink-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lightpink-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightpink-student-ui
+    spec:
+      containers:
+      - name: lightpink-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightpink-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: limegreen-student-ui
+  namespace: limegreen
+  labels:
+    app: limegreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: limegreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: limegreen-student-ui
+    spec:
+      containers:
+      - name: limegreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: limegreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olivedrab-student-ui
+  namespace: olivedrab
+  labels:
+    app: olivedrab-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: olivedrab-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olivedrab-student-ui
+    spec:
+      containers:
+      - name: olivedrab-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olivedrab-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orangered-student-ui
+  namespace: orangered
+  labels:
+    app: orangered-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: orangered-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orangered-student-ui
+    spec:
+      containers:
+      - name: orangered-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orangered-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-student-ui
+  namespace: palegreen
+  labels:
+    app: palegreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-student-ui
+    spec:
+      containers:
+      - name: palegreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peachpuff-student-ui
+  namespace: peachpuff
+  labels:
+    app: peachpuff-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: peachpuff-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: peachpuff-student-ui
+    spec:
+      containers:
+      - name: peachpuff-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: peachpuff-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rosybrown-student-ui
+  namespace: rosybrown
+  labels:
+    app: rosybrown-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: rosybrown-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rosybrown-student-ui
+    spec:
+      containers:
+      - name: rosybrown-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: rosybrown-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: royalblue-student-ui
+  namespace: royalblue
+  labels:
+    app: royalblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: royalblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: royalblue-student-ui
+    spec:
+      containers:
+      - name: royalblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: royalblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slateblue-student-ui
+  namespace: slateblue
+  labels:
+    app: slateblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: slateblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slateblue-student-ui
+    spec:
+      containers:
+      - name: slateblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slateblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slategray-student-ui
+  namespace: slategray
+  labels:
+    app: slategray-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: slategray-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slategray-student-ui
+    spec:
+      containers:
+      - name: slategray-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: slategray-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-student-ui
+  namespace: steelblue
+  labels:
+    app: steelblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-student-ui
+    spec:
+      containers:
+      - name: steelblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: turquoise-student-ui
+  namespace: turquoise
+  labels:
+    app: turquoise-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: turquoise-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: turquoise-student-ui
+    spec:
+      containers:
+      - name: turquoise-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: turquoise-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aquamarine-student-ui
+  namespace: aquamarine
+  labels:
+    app: aquamarine-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: aquamarine-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aquamarine-student-ui
+    spec:
+      containers:
+      - name: aquamarine-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aquamarine-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blueviolet-student-ui
+  namespace: blueviolet
+  labels:
+    app: blueviolet-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: blueviolet-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blueviolet-student-ui
+    spec:
+      containers:
+      - name: blueviolet-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blueviolet-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darksalmon-student-ui
+  namespace: darksalmon
+  labels:
+    app: darksalmon-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darksalmon-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darksalmon-student-ui
+    spec:
+      containers:
+      - name: darksalmon-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darksalmon-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkviolet-student-ui
+  namespace: darkviolet
+  labels:
+    app: darkviolet-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkviolet-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkviolet-student-ui
+    spec:
+      containers:
+      - name: darkviolet-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkviolet-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dodgerblue-student-ui
+  namespace: dodgerblue
+  labels:
+    app: dodgerblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: dodgerblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dodgerblue-student-ui
+    spec:
+      containers:
+      - name: dodgerblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: dodgerblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightcoral-student-ui
+  namespace: lightcoral
+  labels:
+    app: lightcoral-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lightcoral-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightcoral-student-ui
+    spec:
+      containers:
+      - name: lightcoral-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightcoral-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightgreen-student-ui
+  namespace: lightgreen
+  labels:
+    app: lightgreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lightgreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightgreen-student-ui
+    spec:
+      containers:
+      - name: lightgreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightgreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumblue-student-ui
+  namespace: mediumblue
+  labels:
+    app: mediumblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumblue-student-ui
+    spec:
+      containers:
+      - name: mediumblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sandybrown-student-ui
+  namespace: sandybrown
+  labels:
+    app: sandybrown-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: sandybrown-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sandybrown-student-ui
+    spec:
+      containers:
+      - name: sandybrown-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: sandybrown-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkmagenta-student-ui
+  namespace: darkmagenta
+  labels:
+    app: darkmagenta-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkmagenta-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkmagenta-student-ui
+    spec:
+      containers:
+      - name: darkmagenta-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkmagenta-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forestgreen-student-ui
+  namespace: forestgreen
+  labels:
+    app: forestgreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: forestgreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: forestgreen-student-ui
+    spec:
+      containers:
+      - name: forestgreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: forestgreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greenyellow-student-ui
+  namespace: greenyellow
+  labels:
+    app: greenyellow-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: greenyellow-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: greenyellow-student-ui
+    spec:
+      containers:
+      - name: greenyellow-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: greenyellow-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navajowhite-student-ui
+  namespace: navajowhite
+  labels:
+    app: navajowhite-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: navajowhite-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navajowhite-student-ui
+    spec:
+      containers:
+      - name: navajowhite-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navajowhite-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saddlebrown-student-ui
+  namespace: saddlebrown
+  labels:
+    app: saddlebrown-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: saddlebrown-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: saddlebrown-student-ui
+    spec:
+      containers:
+      - name: saddlebrown-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: saddlebrown-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springgreen-student-ui
+  namespace: springgreen
+  labels:
+    app: springgreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: springgreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: springgreen-student-ui
+    spec:
+      containers:
+      - name: springgreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: springgreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellowgreen-student-ui
+  namespace: yellowgreen
+  labels:
+    app: yellowgreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: yellowgreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellowgreen-student-ui
+    spec:
+      containers:
+      - name: yellowgreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellowgreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkseagreen-student-ui
+  namespace: darkseagreen
+  labels:
+    app: darkseagreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkseagreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkseagreen-student-ui
+    spec:
+      containers:
+      - name: darkseagreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkseagreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumorchid-student-ui
+  namespace: mediumorchid
+  labels:
+    app: mediumorchid-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumorchid-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumorchid-student-ui
+    spec:
+      containers:
+      - name: mediumorchid-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumorchid-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumpurple-student-ui
+  namespace: mediumpurple
+  labels:
+    app: mediumpurple-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumpurple-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumpurple-student-ui
+    spec:
+      containers:
+      - name: mediumpurple-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumpurple-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: midnightblue-student-ui
+  namespace: midnightblue
+  labels:
+    app: midnightblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: midnightblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: midnightblue-student-ui
+    spec:
+      containers:
+      - name: midnightblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: midnightblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgoldenrod-student-ui
+  namespace: darkgoldenrod
+  labels:
+    app: darkgoldenrod-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkgoldenrod-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgoldenrod-student-ui
+    spec:
+      containers:
+      - name: darkgoldenrod-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgoldenrod-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkslateblue-student-ui
+  namespace: darkslateblue
+  labels:
+    app: darkslateblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkslateblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkslateblue-student-ui
+    spec:
+      containers:
+      - name: darkslateblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkslateblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightseagreen-student-ui
+  namespace: lightseagreen
+  labels:
+    app: lightseagreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lightseagreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightseagreen-student-ui
+    spec:
+      containers:
+      - name: lightseagreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightseagreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palevioletred-student-ui
+  namespace: palevioletred
+  labels:
+    app: palevioletred-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: palevioletred-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palevioletred-student-ui
+    spec:
+      containers:
+      - name: palevioletred-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palevioletred-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornflowerblue-student-ui
+  namespace: cornflowerblue
+  labels:
+    app: cornflowerblue-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: cornflowerblue-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornflowerblue-student-ui
+    spec:
+      containers:
+      - name: cornflowerblue-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornflowerblue-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkolivegreen-student-ui
+  namespace: darkolivegreen
+  labels:
+    app: darkolivegreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: darkolivegreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkolivegreen-student-ui
+    spec:
+      containers:
+      - name: darkolivegreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkolivegreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightslategray-student-ui
+  namespace: lightslategray
+  labels:
+    app: lightslategray-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: lightslategray-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightslategray-student-ui
+    spec:
+      containers:
+      - name: lightslategray-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightslategray-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumseagreen-student-ui
+  namespace: mediumseagreen
+  labels:
+    app: mediumseagreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumseagreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumseagreen-student-ui
+    spec:
+      containers:
+      - name: mediumseagreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumseagreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumturquoise-student-ui
+  namespace: mediumturquoise
+  labels:
+    app: mediumturquoise-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumturquoise-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumturquoise-student-ui
+    spec:
+      containers:
+      - name: mediumturquoise-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumturquoise-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumvioletred-student-ui
+  namespace: mediumvioletred
+  labels:
+    app: mediumvioletred-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumvioletred-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumvioletred-student-ui
+    spec:
+      containers:
+      - name: mediumvioletred-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumvioletred-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumaquamarine-student-ui
+  namespace: mediumaquamarine
+  labels:
+    app: mediumaquamarine-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumaquamarine-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumaquamarine-student-ui
+    spec:
+      containers:
+      - name: mediumaquamarine-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumaquamarine-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # 
+--- # Create Deployment for each team/student  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediumspringgreen-student-ui
+  namespace: mediumspringgreen
+  labels:
+    app: mediumspringgreen-student-ui
+spec:
+  selector:
+    matchLabels:
+      app: mediumspringgreen-student-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediumspringgreen-student-ui
+    spec:
+      containers:
+      - name: mediumspringgreen-student-ui
+        image: ibmicpcoc/collector:V3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mediumspringgreen-collector-config
+                key: COLLECTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---

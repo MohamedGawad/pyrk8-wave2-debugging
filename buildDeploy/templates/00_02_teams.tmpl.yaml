@@ -1,0 +1,18 @@
+--- #
+--- # Create Namespace for each team/student
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{team}}
+---
+--- # ConfigMap for team namespace
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{team}}-collector-config
+  namespace: {{team}}
+data:
+  COLLECTOR_CONFIG: 'http://{{team}}-student-ui'
+  INSTRUCTOR_CONFIG: '{{instructorUrl}}'

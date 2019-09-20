@@ -1,0 +1,16 @@
+{
+    "instructorUrl"       : "http://dashboard.default",
+    "instructorNamespace" : "default",
+    "repoName"            : "docker.io/ibmicpcoc",
+    "containerName"       : "collector",
+    "version"             : "latest",
+    "studentPort"         : 31001,
+    "instructorPort"      : 31000,
+    "teamsFile"           : "/Users/daveweilert/ocpCollector/buildDeploy/teamsTen.json",
+    "outputDir"           : "/Users/daveweilert/ocpCollector/yamlout",
+    "templateDir"         : "/Users/daveweilert/ocpCollector/buildDeploy/templates",
+    "studentIP"           : "52.117.155.26, 52.117.155.24, 52.117.155.26",
+    "masterIP"            : "52.117.155.26",
+    "adminUser"           : "admin",
+    "adminPswd"           : "admin"
+}

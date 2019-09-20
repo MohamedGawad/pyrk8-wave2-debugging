@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: red
+  name: red-tools
+  app: red-tools
+spec:
+  containers:
+    - name: red-tools
+      image: ibmicpcoc/nettools:latest
+      command:
+      - sleep
+      - "3600"
+

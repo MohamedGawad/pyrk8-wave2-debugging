@@ -1,0 +1,229 @@
+Desired state::
+
+Init container that needs to create a file <team>.txt at 
+
+volumeMounts:
+- mountPath: /data
+
+Using  hostPath  named config-data
+
+volumes:
+- name: config-data
+hostPath: "/data" 
+
+------
+
+MacBook-Pro:deployment daveweilert$ oc get po
+NAME                         READY     STATUS             RESTARTS   AGE
+red-lacey-5664ddc89f-6xft2   0/1       CrashLoopBackOff   2          42s
+red-tools                    1/1       Running            7          7h
+
+
+MacBook-Pro:deployment daveweilert$ oc describe po red-lacey-5664ddc89f-6xft2
+Name:               red-lacey-5664ddc89f-6xft2
+Namespace:          red
+Priority:           0
+PriorityClassName:  <none>
+Node:               gfstst.169.62.225.213.nip.io/169.62.225.213
+Start Time:         Thu, 05 Sep 2019 20:37:35 -0400
+Labels:             app=red-lacey
+                    pod-template-hash=1220887459
+Annotations:        openshift.io/scc=restricted
+Status:             Running
+IP:                 10.131.0.158
+Controlled By:      ReplicaSet/red-lacey-5664ddc89f
+Containers:
+  red-lacey:
+    Container ID:  docker://6d79259016381d79fbe72b527701274e353ec5532de780627917f6727ed51153
+    Image:         ibmicpcoc/lacey:latest
+    Image ID:      docker-pullable://docker.io/ibmicpcoc/lacey@sha256:4daf8aa94f23c927f80a72cc7a118fa7b8a00f15e38f5185a9bc90435cc73928
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      node
+      app.js
+    State:          Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Thu, 05 Sep 2019 20:38:30 -0400
+      Finished:     Thu, 05 Sep 2019 20:38:30 -0400
+    Ready:          False
+    Restart Count:  3
+    Requests:
+      cpu:     50m
+      memory:  50Mi
+    Environment:
+      APP_NAMESPACE:      red (v1:metadata.namespace)
+      APP_NAME:           red-lacey-5664ddc89f-6xft2 (v1:metadata.name)
+      COLLECTOR_CONFIG:   <set to the key 'COLLECTOR_CONFIG' of config map 'red-collector-config'>   Optional: false
+      INSTRUCTOR_CONFIG:  <set to the key 'INSTRUCTOR_CONFIG' of config map 'red-collector-config'>  Optional: false
+    Mounts:
+      /data from config-data (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-dxnzt (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  config-data:
+    Type:    EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:
+  default-token-dxnzt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-dxnzt
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  node-role.kubernetes.io/compute=true
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+Events:
+  Type     Reason     Age               From                                   Message
+  ----     ------     ----              ----                                   -------
+  Normal   Scheduled  1m                default-scheduler                      Successfully assigned red/red-lacey-5664ddc89f-6xft2 to gfstst.169.62.225.213.nip.io
+  Normal   Pulling    9s (x4 over 1m)   kubelet, gfstst.169.62.225.213.nip.io  pulling image "ibmicpcoc/lacey:latest"
+  Normal   Pulled     8s (x4 over 57s)  kubelet, gfstst.169.62.225.213.nip.io  Successfully pulled image "ibmicpcoc/lacey:latest"
+  Normal   Created    8s (x4 over 57s)  kubelet, gfstst.169.62.225.213.nip.io  Created container
+  Normal   Started    8s (x4 over 57s)  kubelet, gfstst.169.62.225.213.nip.io  Started container
+  Warning  BackOff    7s (x5 over 54s)  kubelet, gfstst.169.62.225.213.nip.io  Back-off restarting failed container
+  
+  
+  
+  MacBook-Pro:deployment daveweilert$ oc logs red-lacey-5664ddc89f-6xft2
+9/6/2019, 12:39:12 AM :: lacy001i - Application random key: e8db7f53-3269-4efe-b815-e89a7347521e
+9/6/2019, 12:39:12 AM :: lacy003i - Environment APP_NAMESPACE: red
+9/6/2019, 12:39:12 AM :: lacy004i - Environment APP_NAME: Using random key = red-lacey-5664ddc89f-6xft2
+9/6/2019, 12:39:12 AM :: lacy013i - Environment COLLECTOR_CONFIG: http://red-student-ui
+9/6/2019, 12:39:12 AM :: lacy014i - Environment INSTRUCTOR_CONFIG: http://dashboard.default
+9/6/2019, 12:39:12 AM :: lacy109e - Did not locate config file: /data/red.txt  Error message: Error: ENOENT: no such file or directory, open '/data/red.txt'
+
+
+
+
+========
+MacBook-Pro:deployment daveweilert$ oc get po
+NAME                         READY     STATUS             RESTARTS   AGE
+red-lacey-5664ddc89f-6xft2   0/1       CrashLoopBackOff   4          2m
+red-tools                    1/1       Running            7          7h
+MacBook-Pro:deployment daveweilert$ oc logs red-lacey-5664ddc89f-6xft2
+9/6/2019, 12:39:12 AM :: lacy001i - Application random key: e8db7f53-3269-4efe-b815-e89a7347521e
+9/6/2019, 12:39:12 AM :: lacy003i - Environment APP_NAMESPACE: red
+9/6/2019, 12:39:12 AM :: lacy004i - Environment APP_NAME: Using random key = red-lacey-5664ddc89f-6xft2
+9/6/2019, 12:39:12 AM :: lacy013i - Environment COLLECTOR_CONFIG: http://red-student-ui
+9/6/2019, 12:39:12 AM :: lacy014i - Environment INSTRUCTOR_CONFIG: http://dashboard.default
+9/6/2019, 12:39:12 AM :: lacy109e - Did not locate config file: /data/red.txt  Error message: Error: ENOENT: no such file or directory, open '/data/red.txt'
+MacBook-Pro:deployment daveweilert$ oc delete -f 14_fail_lacey_all.yaml
+deployment.apps "red-lacey" deleted
+MacBook-Pro:deployment daveweilert$ oc create -f 14_pass_lacey_all.yaml
+deployment.apps/red-lacey created
+MacBook-Pro:deployment daveweilert$ oc get po
+NAME                         READY     STATUS            RESTARTS   AGE
+red-lacey-594774ccf5-stk4q   0/1       PodInitializing   0          6s
+red-tools                    1/1       Running           7          7h
+MacBook-Pro:deployment daveweilert$ oc describe po red-lacey-594774ccf5-stk4q
+Name:               red-lacey-594774ccf5-stk4q
+Namespace:          red
+Priority:           0
+PriorityClassName:  <none>
+Node:               gfstst.169.62.225.207.nip.io/169.62.225.207
+Start Time:         Thu, 05 Sep 2019 20:42:16 -0400
+Labels:             app=red-lacey
+                    pod-template-hash=1503307791
+Annotations:        openshift.io/scc=restricted
+Status:             Running
+IP:                 10.130.0.225
+Controlled By:      ReplicaSet/red-lacey-594774ccf5
+Init Containers:
+  red-init:
+    Container ID:  docker://0591458c284c065c334e0dc754eae06eef1bf28bc4c6622e8757ab6c95616525
+    Image:         centos:7
+    Image ID:      docker-pullable://docker.io/centos@sha256:307835c385f656ec2e2fec602cf093224173c51119bbebd602c53c3653a3d6eb
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      bin/bash
+      -c
+      echo red > /data/red.txt
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 05 Sep 2019 20:42:19 -0400
+      Finished:     Thu, 05 Sep 2019 20:42:19 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /data from config-data (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-dxnzt (ro)
+Containers:
+  red-lacey:
+    Container ID:  docker://ea78552709a7891c8d29d6393e54845734ce81dc2ff8e713679685aa3d230d47
+    Image:         ibmicpcoc/lacey:latest
+    Image ID:      docker-pullable://docker.io/ibmicpcoc/lacey@sha256:4daf8aa94f23c927f80a72cc7a118fa7b8a00f15e38f5185a9bc90435cc73928
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      node
+      app.js
+    State:          Running
+      Started:      Thu, 05 Sep 2019 20:42:22 -0400
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:     50m
+      memory:  50Mi
+    Environment:
+      APP_NAMESPACE:      red (v1:metadata.namespace)
+      APP_NAME:           red-lacey-594774ccf5-stk4q (v1:metadata.name)
+      COLLECTOR_CONFIG:   <set to the key 'COLLECTOR_CONFIG' of config map 'red-collector-config'>   Optional: false
+      INSTRUCTOR_CONFIG:  <set to the key 'INSTRUCTOR_CONFIG' of config map 'red-collector-config'>  Optional: false
+    Mounts:
+      /data from config-data (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-dxnzt (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  config-data:
+    Type:    EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:
+  default-token-dxnzt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-dxnzt
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  node-role.kubernetes.io/compute=true
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+Events:
+  Type    Reason     Age   From                                   Message
+  ----    ------     ----  ----                                   -------
+  Normal  Scheduled  18s   default-scheduler                      Successfully assigned red/red-lacey-594774ccf5-stk4q to gfstst.169.62.225.207.nip.io
+  Normal  Pulled     16s   kubelet, gfstst.169.62.225.207.nip.io  Container image "centos:7" already present on machine
+  Normal  Created    16s   kubelet, gfstst.169.62.225.207.nip.io  Created container
+  Normal  Started    15s   kubelet, gfstst.169.62.225.207.nip.io  Started container
+  Normal  Pulling    14s   kubelet, gfstst.169.62.225.207.nip.io  pulling image "ibmicpcoc/lacey:latest"
+  Normal  Pulled     12s   kubelet, gfstst.169.62.225.207.nip.io  Successfully pulled image "ibmicpcoc/lacey:latest"
+  Normal  Created    12s   kubelet, gfstst.169.62.225.207.nip.io  Created container
+  Normal  Started    12s   kubelet, gfstst.169.62.225.207.nip.io  Started container
+MacBook-Pro:deployment daveweilert$ oc logs red-lacey-594774ccf5-stk4q
+9/6/2019, 12:42:22 AM :: lacy001i - Application random key: 9d0790cc-a8b9-4d01-8000-6f98b8fd597c
+9/6/2019, 12:42:22 AM :: lacy003i - Environment APP_NAMESPACE: red
+9/6/2019, 12:42:22 AM :: lacy004i - Environment APP_NAME: Using random key = red-lacey-594774ccf5-stk4q
+9/6/2019, 12:42:22 AM :: lacy013i - Environment COLLECTOR_CONFIG: http://red-student-ui
+9/6/2019, 12:42:22 AM :: lacy014i - Environment INSTRUCTOR_CONFIG: http://dashboard.default
+red
+
+9/6/2019, 12:42:22 AM :: lacy112i - All OK
+9/6/2019, 12:42:22 AM :: lacy011i - Initial reporting to student
+9/6/2019, 12:42:22 AM :: lacy012i - Initial reporting to instructor
+9/6/2019, 12:42:22 AM :: lacy011e - Error telling student count: 1 message: Error: getaddrinfo ENOTFOUND red-student-ui red-student-ui:80
+9/6/2019, 12:42:22 AM :: lacy012e - Error telling instructor count: 1 message: Error: getaddrinfo ENOTFOUND dashboard.default dashboard.default:80
+9/6/2019, 12:42:27 AM :: lacy011e - Error telling student count: 2 message: Error: getaddrinfo ENOTFOUND red-student-ui red-student-ui:80
+9/6/2019, 12:42:32 AM :: lacy011e - Error telling student count: 3 message: Error: getaddrinfo ENOTFOUND red-student-ui red-student-ui:80
+9/6/2019, 12:42:37 AM :: lacy011e - Error telling student count: 4 message: Error: getaddrinfo ENOTFOUND red-student-ui red-student-ui:80
+9/6/2019, 12:42:37 AM :: lacy012e - Error telling instructor count: 2 message: Error: getaddrinfo ENOTFOUND dashboard.default dashboard.default:80
+9/6/2019, 12:42:42 AM :: lacy011e - Error telling student count: 5 message: Error: getaddrinfo ENOTFOUND red-student-ui red-student-ui:80
+MacBook-Pro:deployment daveweilert$
